@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corte e Cria Decor | Catálogo</title>
+<meta name="description" content="Catálogo de decoração em MDF personalizada. Escolha, personalize e peça seu orçamento pelo WhatsApp.">
+<meta name="theme-color" content="#F4ECD8">
+<link rel="icon" type="image/png" href="assets/icone.png">
+<link rel="apple-touch-icon" href="assets/icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#grade">Ir para os produtos</a>
+<header class="topo">
+  <div class="wrap topo-in">
+    <a class="marca" href="./" aria-label="Corte e Cria Decor, início">
+      <img src="assets/logo.jpg" alt="" width="52" height="52">
+      <span><strong id="loja-nome">Corte e Cria Decor</strong><small id="loja-slogan"></small></span>
+    </a>
+    <div class="topo-acoes">
+      <a id="lnk-insta" class="btn btn-sec btn-peq" hidden target="_blank" rel="noopener">Instagram</a>
+      <button type="button" id="btn-carrinho" class="btn btn-pri" aria-label="Abrir meu orçamento">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+        <span class="so-desk">Meu orçamento</span><span id="cont" class="cont" hidden>0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Escolha, personalize e peça seu orçamento</h1>
+      <ol class="passos">
+        <li><b>1</b> Escolha os produtos</li>
+        <li><b>2</b> Informe cor, quantidade e nome</li>
+        <li><b>3</b> Envie pelo WhatsApp</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="wrap filtros" aria-label="Buscar e filtrar">
+    <label class="busca"><span class="sr">Buscar produto</span>
+      <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+      <input id="busca" type="search" placeholder="Buscar produto (ex.: luminária, quadro, nuvem)" autocomplete="off">
+    </label>
+    <div id="cats" class="cats" role="group" aria-label="Categorias"></div>
+    <p id="contagem" class="contagem" aria-live="polite"></p>
+  </section>
+
+  <section class="wrap">
+    <ul id="grade" class="grade"></ul>
+    <p id="vazio" class="vazio" hidden>Nenhum produto encontrado. Tente outra palavra ou escolha “Todos”.</p>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <p><strong>Corte e Cria Decor</strong> · Os valores são informados por orçamento. Responderemos pelo WhatsApp.</p>
+  </div>
+</footer>
+
+<div id="barra-mob" class="barra-mob" hidden>
+  <button type="button" id="btn-barra" class="btn btn-pri btn-grande"></button>
+</div>
+
+<div id="folha" class="folha" hidden>
+  <div class="folha-fundo" data-fechar></div>
+  <div class="folha-caixa" role="dialog" aria-modal="true" aria-labelledby="folha-titulo" tabindex="-1">
+    <header class="folha-topo"><h2 id="folha-titulo"></h2><button type="button" class="btn-x" data-fechar aria-label="Fechar"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></header>
+    <div id="folha-corpo" class="folha-corpo"></div>
+  </div>
+</div>
+<div id="avisos" class="avisos" aria-live="polite"></div>
+
+<script src="config.js"></script>
+<script src="produtos.js"></script>
+<script src="pdf.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
