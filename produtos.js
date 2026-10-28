@@ -886,8 +886,7 @@ window.PRODUTOS = [
   "foto": "fotos/cod16_kit_nichos_nuvem.jpg",
   "fotosExtra": [
    "fotos/cod16_kit_nichos_nuvem_2.jpg",
-   "fotos/cod16_kit_nichos_nuvem_3.jpg",
-   "fotos/cod16_kit_nichos_nuvem_4.jpg"
+   "fotos/cod16_kit_nichos_nuvem_3.jpg"
   ],
   "cores": [
    "Vermelho",
