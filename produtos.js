@@ -454,5 +454,47 @@ window.PRODUTOS = [
    "fotos/cod3_arco_iris_boho_2.jpg",
    "fotos/cod3_arco_iris_boho_3.jpg"
   ]
+ },
+ {
+  "id": 45,
+  "codigo": "casinha_led",
+  "nome": "Casinha Decorativa com Luz LED em MDF",
+  "nomeCompleto": "Casinha Decorativa com Luz LED – Enfeite Iluminado em MDF para Sala de Estar, Quarto ou Escritório",
+  "categoria": "Luminárias",
+  "personalizavel": false,
+  "medidas": "17 cm de altura x 12 cm de largura x 12 cm de comprimento",
+  "foto": "fotos/casinha_led.jpg",
+  "fotosExtra": [
+   "fotos/casinha_led_2.jpg",
+   "fotos/casinha_led_3.jpg",
+   "fotos/casinha_led_4.jpg"
+  ]
+ },
+ {
+  "id": 46,
+  "codigo": "kit_3_quadros_flores",
+  "nome": "Quadros Decoração Kit 3 Faces Clínica De Estética Mdf 3mm",
+  "nomeCompleto": "Quadros Decoração Kit 3 Faces Clínica De Estética Mdf 3mm – Kit 3 Quadros Decorativos em MDF Flores",
+  "categoria": "Quadros",
+  "personalizavel": false,
+  "medidas": "3 peças de 50 x 25 cm cada",
+  "foto": "fotos/kit_3_quadros_flores.jpg",
+  "fotosExtra": [
+   "fotos/kit_3_quadros_flores_2.jpg",
+   "fotos/kit_3_quadros_flores_3.jpg"
+  ]
+ },
+ {
+  "id": 47,
+  "codigo": "kit_lua_nuvens_estrelas",
+  "nome": "Aplique Lua, Nuvens e Estrelas Brancas MDF (1 lua, 3 nuvens e 5 estrelas)",
+  "nomeCompleto": "Aplique Lua, Nuvens e Estrelas Brancas MDF (1 lua, 3 nuvens e 5 estrelas) – Kit com 9 peças, MDF 3 mm, acompanha fita dupla face",
+  "categoria": "Decoração infantil",
+  "personalizavel": false,
+  "medidas": "Lua 20 cm de altura; nuvem G 32 x 21 cm; nuvem M 27 x 17,5 cm; nuvem P 20 x 13 cm; 5 estrelas de 10 cm de altura",
+  "foto": "fotos/kit_lua_nuvens_estrelas.jpg",
+  "fotosExtra": [
+   "fotos/kit_lua_nuvens_estrelas_2.jpg"
+  ]
  }
 ];
