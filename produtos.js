@@ -410,5 +410,49 @@ window.PRODUTOS = [
   "personalizavel": false,
   "medidas": null,
   "foto": "fotos/trio_quadros.jpg"
+ },
+ {
+  "id": 42,
+  "codigo": "cod1_ursinho_principe",
+  "nome": "Porta Maternidade Ursinho Príncipe Personalizado com Nome",
+  "nomeCompleto": "COD1 - Enfeite Porta Maternidade Ursinho Príncipe Personalizado com Nome - Placa Flâmula Redonda (1 porta maternidade + 1 pendurador, MDF Premium)",
+  "categoria": "Maternidade",
+  "personalizavel": true,
+  "medidas": "Porta maternidade 25 cm + pendurador 8 cm",
+  "foto": "fotos/cod1_ursinho_principe.jpg",
+  "fotosExtra": [
+   "fotos/cod1_ursinho_principe_2.jpg",
+   "fotos/cod1_ursinho_principe_3.jpg",
+   "fotos/cod1_ursinho_principe_4.jpg",
+   "fotos/cod1_ursinho_principe_5.jpg",
+   "fotos/cod1_ursinho_principe_6.jpg"
+  ]
+ },
+ {
+  "id": 43,
+  "codigo": "cod2_placa_crista",
+  "nome": "Kit Placa Decorativa Cristã + Suporte Redondo MDF Branco",
+  "nomeCompleto": "COD2 - Kit Placa Decorativa Cristã + Suporte Redondo MDF Branco 20x20 - Tudo Posso Naquele que Me Fortalece, Filipenses 4:13",
+  "categoria": "Placas e frases",
+  "personalizavel": false,
+  "medidas": "20 x 20 cm",
+  "foto": "fotos/cod2_placa_crista.jpg",
+  "fotosExtra": [
+   "fotos/cod2_placa_crista_2.jpg"
+  ]
+ },
+ {
+  "id": 44,
+  "codigo": "cod3_arco_iris_boho",
+  "nome": "Porta Maternidade Arco-Íris Boho com Nome Personalizado",
+  "nomeCompleto": "COD3 - Enfeite Porta Maternidade Arco-Íris Boho - Nome personalizado - Guirlanda (MDF 3 mm, redondo, com suporte e cordão)",
+  "categoria": "Maternidade",
+  "personalizavel": true,
+  "medidas": "25 cm",
+  "foto": "fotos/cod3_arco_iris_boho.jpg",
+  "fotosExtra": [
+   "fotos/cod3_arco_iris_boho_2.jpg",
+   "fotos/cod3_arco_iris_boho_3.jpg"
+  ]
  }
 ];

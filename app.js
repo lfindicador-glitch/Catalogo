@@ -117,6 +117,24 @@
     return box;
   }
 
+  // Foto principal do produto + miniaturas das fotos extras (se houver)
+  function galeria(p) {
+    var img = h('img', { src: p.foto, alt: p.nome });
+    var caixa = h('div', { class: 'det-foto' }, img);
+    var todas = [p.foto].concat(p.fotosExtra || []);
+    if (todas.length < 2) return caixa;
+    var botoes = todas.map(function (f, i) {
+      var b = h('button', { type: 'button', class: 'mini' + (i === 0 ? ' ativa' : ''), 'aria-label': 'Ver foto ' + (i + 1) + ' de ' + todas.length,
+        onclick: function () {
+          img.src = f;
+          botoes.forEach(function (x) { x.classList.remove('ativa'); });
+          b.classList.add('ativa');
+        } }, h('img', { src: f, alt: '', loading: 'lazy' }));
+      return b;
+    });
+    return h('div', { class: 'galeria' }, caixa, h('div', { class: 'minis' }, botoes));
+  }
+
   function abrirProduto(p) {
     var cor = '', querPers = false;
     var erro = h('p', { class: 'erro', role: 'alert', hidden: true });
@@ -148,7 +166,7 @@
     } }, icone(IC.mais), 'Adicionar ao orçamento');
 
     var corpo = h('div', { class: 'pilha' },
-      h('div', { class: 'det-foto' }, h('img', { src: p.foto, alt: p.nome })),
+      galeria(p),
       h('div', { class: 'det-info' },
         h('span', { class: 'cat-rot', text: p.categoria }),
         h('h3', { text: p.nomeCompleto }),
