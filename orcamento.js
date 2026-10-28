@@ -17,7 +17,7 @@
     o.i.forEach(function (r) {
       var p = porId(r[0]); var qt = Math.min(999, Math.max(1, parseInt(r[2], 10) || 1));
       if (!p) { q.faltando++; return; }
-      q.itens.push({ codigo: p.codigo, cor: String(r[1] || '').slice(0, 30), qtd: qt, pers: String(r[3] || '').slice(0, 60) });
+      q.itens.push({ codigo: p.codigo, cor: String(r[1] || '').slice(0, 30), qtd: qt, pers: String(r[3] || '').slice(0, 100) });
     });
     q.pecas = q.itens.reduce(function (s, i) { return s + i.qtd; }, 0);
     return q;

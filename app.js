@@ -49,7 +49,7 @@
       var d = JSON.parse(localStorage.getItem(CHAVE) || 'null');
       if (d && Array.isArray(d.itens)) {
         S.itens = d.itens.filter(function (i) { return i && porCodigo(i.codigo) && i.qtd > 0; })
-          .map(function (i) { return { codigo: i.codigo, cor: i.cor || '', qtd: Math.min(999, Math.max(1, i.qtd | 0)), pers: i.pers ? String(i.pers).slice(0, 60) : '' }; });
+          .map(function (i) { return { codigo: i.codigo, cor: i.cor || '', qtd: Math.min(999, Math.max(1, i.qtd | 0)), pers: i.pers ? String(i.pers).slice(0, 100) : '' }; });
         S.cliente = String(d.cliente || '').slice(0, 80); S.obs = String(d.obs || '').slice(0, 300);
       }
     } catch (e) { /* ignora */ }
@@ -117,6 +117,18 @@
     return box;
   }
 
+  // Descrição do produto (recolhida): linhas "## " viram subtítulo, "- " viram itens de lista
+  function detalhes(p) {
+    if (!p.descricao || !p.descricao.length) return null;
+    var corpo = h('div', { class: 'desc-corpo' }), lista = null;
+    p.descricao.forEach(function (t) {
+      if (t.indexOf('- ') === 0) { if (!lista) { lista = h('ul'); corpo.appendChild(lista); } lista.appendChild(h('li', { text: t.slice(2) })); return; }
+      lista = null;
+      if (t.indexOf('## ') === 0) corpo.appendChild(h('h4', { text: t.slice(3) })); else corpo.appendChild(h('p', { text: t }));
+    });
+    return h('details', { class: 'desc' }, h('summary', { text: 'Ver descrição do produto' }), corpo);
+  }
+
   // Foto principal do produto + miniaturas das fotos extras (se houver)
   function galeria(p) {
     var img = h('img', { src: p.foto, alt: p.nome });
@@ -138,13 +150,14 @@
   function abrirProduto(p) {
     var cor = '', querPers = false;
     var erro = h('p', { class: 'erro', role: 'alert', hidden: true });
-    var nomeInp = h('input', { class: 'campo', id: 'f-pers', type: 'text', maxlength: 60, placeholder: 'Ex.: Maria Clara', autocomplete: 'off' });
-    var blocoNome = h('div', { class: 'bloco', hidden: true }, h('label', { for: 'f-pers', text: 'Nome ou frase para gravar' }), nomeInp);
+    var nomeInp = h('input', { class: 'campo', id: 'f-pers', type: 'text', maxlength: 100, placeholder: p.persExemplo || 'Ex.: Maria Clara', autocomplete: 'off' });
+    var blocoNome = h('div', { class: 'bloco', hidden: true }, h('label', { for: 'f-pers', text: p.persRotulo || 'Nome ou frase para gravar' }), nomeInp);
     var qtd = seletorQtd(1);
 
     var cores = h('div', { class: 'cores', role: 'group', 'aria-label': 'Cor' });
     function marcarCor() { Array.prototype.forEach.call(cores.children, function (b) { b.setAttribute('aria-pressed', String(b.dataset.cor === cor)); }); }
-    CORES.forEach(function (c) {
+    var coresDoProduto = p.cores ? CORES.filter(function (c) { return p.cores.indexOf(c.nome) > -1; }) : CORES;
+    coresDoProduto.forEach(function (c) {
       var i = h('i'); i.style.background = c.hex;
       cores.appendChild(h('button', { type: 'button', class: 'cor', 'data-cor': c.nome, 'aria-pressed': 'false', onclick: function () { cor = (cor === c.nome ? '' : c.nome); marcarCor(); } }, i, c.nome));
     });
@@ -155,12 +168,12 @@
       var bNao = h('button', { type: 'button', 'aria-pressed': 'true', text: 'Não' });
       function setPers(v) { querPers = v; bSim.setAttribute('aria-pressed', String(v)); bNao.setAttribute('aria-pressed', String(!v)); blocoNome.hidden = !v; if (v) nomeInp.focus(); }
       bSim.addEventListener('click', function () { setPers(true); }); bNao.addEventListener('click', function () { setPers(false); });
-      blocoPers = h('div', { class: 'bloco' }, h('span', { class: 'rot', text: 'Personalizar com nome?' }), h('div', { class: 'sw-pers' }, bSim, bNao));
+      blocoPers = h('div', { class: 'bloco' }, h('span', { class: 'rot', text: p.persPergunta || 'Personalizar com nome?' }), h('div', { class: 'sw-pers' }, bSim, bNao));
     }
 
     var add = h('button', { type: 'button', class: 'btn btn-pri btn-grande', onclick: function () {
       var nome = nomeInp.value.trim();
-      if (querPers && !nome) { erro.textContent = 'Digite o nome que será gravado.'; erro.hidden = false; nomeInp.focus(); return; }
+      if (querPers && !nome) { erro.textContent = 'Preencha o que será gravado.'; erro.hidden = false; nomeInp.focus(); return; }
       adicionar({ codigo: p.codigo, cor: cor, qtd: qtd.valor(), pers: querPers ? nome : '' });
       fecharFolha(); aviso('Adicionado ao orçamento');
     } }, icone(IC.mais), 'Adicionar ao orçamento');
@@ -171,7 +184,8 @@
         h('span', { class: 'cat-rot', text: p.categoria }),
         h('h3', { text: p.nomeCompleto }),
         p.medidas ? h('span', { class: 'med', text: 'Medidas: ' + p.medidas }) : null),
-      h('div', { class: 'bloco' }, h('span', { class: 'rot' }, 'Cor ', h('span', { class: 'dica', text: '(opcional)' })), cores),
+      detalhes(p),
+      coresDoProduto.length ? h('div', { class: 'bloco' }, h('span', { class: 'rot' }, 'Cor ', h('span', { class: 'dica', text: '(opcional)' })), cores) : null,
       h('div', { class: 'bloco' }, h('span', { class: 'rot', text: 'Quantidade' }), qtd),
       blocoPers, blocoNome, erro, add);
     abrirFolha('Escolher opções', corpo);

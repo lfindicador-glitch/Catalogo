@@ -20,7 +20,10 @@ window.CONFIG = {
     { nome: "Rosa",    hex: "#F2A5C0" },
     { nome: "Verde",   hex: "#5FA36A" },
     { nome: "Azul",    hex: "#4A7FC1" },
-    { nome: "Laranja", hex: "#E87120" }
+    { nome: "Laranja", hex: "#E87120" },
+    { nome: "Vermelho", hex: "#C62828" },
+    { nome: "Cinza",   hex: "#9E9E9E" },
+    { nome: "Dourado", hex: "#D4AF37" }
   ],
 
   // Texto que aparece no fim da mensagem enviada ao WhatsApp
