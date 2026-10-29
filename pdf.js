@@ -135,9 +135,11 @@
     });
   }
   function gerarPDF(q) {
-    var codigos = {}; q.itens.forEach(function (i) { codigos[i.codigo] = 1; });
-    var lista = Object.keys(codigos);
-    return Promise.all([imagemJpeg('assets/logo.jpg', 160)].concat(lista.map(function (c) { return imagemJpeg(porCodigo(c).foto, 200); }))).then(function (imgs) {
+    function varDe(p, n) { var L = p.variacoes || []; for (var k = 0; k < L.length; k++) if (L[k].n === n) return L[k]; return null; }
+    var chaves = {}, srcs = {};
+    q.itens.forEach(function (i) { var p = porCodigo(i.codigo), v = varDe(p, i.vari | 0), k = i.codigo + '|' + ((v && v.foto) ? v.n : 0); chaves[k] = 1; srcs[k] = (v && v.foto) || p.foto; });
+    var lista = Object.keys(chaves);
+    return Promise.all([imagemJpeg('assets/logo.jpg', 160)].concat(lista.map(function (c) { return imagemJpeg(srcs[c], 200); }))).then(function (imgs) {
       var P = window.MiniPDF, d = new P.Doc(), M = 40, LARG = P.W - 2 * M;
       var laranja = [184, 79, 8], cinza = [107, 90, 69], escuro = [43, 33, 24], fundo = [244, 236, 216];
       var idx = {}, logo = imgs[0] ? d.addImage(imgs[0].bytes, imgs[0].w, imgs[0].h) : null;
@@ -158,13 +160,15 @@
       q.itens.forEach(function (it, n) {
         var p = porCodigo(it.codigo), tx = M + 78, tw = LARG - 78;
         var nomeL = P.wrap((n + 1) + ') ' + p.nome, 11, true, tw).slice(0, 3);
-        var det = ['Cor: ' + (it.cor || 'a combinar') + '   ·   Quantidade: ' + it.qtd];
+        var vv = varDe(p, it.vari | 0), kimg = it.codigo + '|' + ((vv && vv.foto) ? vv.n : 0), det = [];
+        if (vv) P.wrap('Variação: ' + ((!vv.foto && vv.nome) ? vv.nome : vv.n + (vv.nome ? ' – ' + vv.nome : '')), 10, true, tw).slice(0, 2).forEach(function (l) { det.push({ b: l }); });
+        det.push('Cor: ' + (it.cor || 'a combinar') + '   ·   Quantidade: ' + it.qtd);
         if (it.pers) P.wrap('Personalização: "' + it.pers + '"', 10, true, tw).slice(0, 2).forEach(function (l) { det.push({ b: l }); });
         if (p.medidas) P.wrap('Medidas: ' + p.medidas, 10, false, tw).slice(0, 2).forEach(function (l) { det.push(l); });
-        det.push({ g: 'Código: ' + p.codigo });
+        det.push({ g: 'Código: ' + (p.cod || p.codigo) });
         var alt = Math.max(70, nomeL.length * 13 + det.length * 12.5 + 10);
         if (y + alt > LIM) { d.newPage(); cabecalho(); y = 104; }
-        if (idx[it.codigo] !== undefined) d.image(idx[it.codigo], M, y, 68, 68);
+        if (idx[kimg] !== undefined) d.image(idx[kimg], M, y, 68, 68);
         else d.rect(M, y, 68, 68, fundo);
         var ty = y + 12;
         nomeL.forEach(function (l) { d.text(tx, ty, l, 11, true, escuro); ty += 13; });

@@ -42,6 +42,10 @@
   };
   function norm(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
   function porCodigo(c) { for (var i = 0; i < PRODUTOS.length; i++) if (PRODUTOS[i].codigo === c) return PRODUTOS[i]; return null; }
+  function variacaoDe(p, n) { var L = (p && p.variacoes) || []; for (var i = 0; i < L.length; i++) if (L[i].n === n) return L[i]; return null; }
+  function rotuloVar(v) { if (!v) return ''; if (!v.foto && v.nome) return v.nome; return 'Variação ' + v.n + (v.nome ? ' – ' + v.nome : ''); }
+  function fotoDoItem(p, n) { var v = variacaoDe(p, n); return (v && v.foto) || p.foto; }
+  function codigoVisivel(p) { return p.cod || p.codigo; }
   function corHex(n) { for (var i = 0; i < CORES.length; i++) if (CORES[i].nome === n) return CORES[i].hex; return '#ccc'; }
   function salvar() { try { localStorage.setItem(CHAVE, JSON.stringify({ itens: S.itens, cliente: S.cliente, obs: S.obs })); } catch (e) { /* sem armazenamento */ } }
   function carregar() {
@@ -49,7 +53,7 @@
       var d = JSON.parse(localStorage.getItem(CHAVE) || 'null');
       if (d && Array.isArray(d.itens)) {
         S.itens = d.itens.filter(function (i) { return i && porCodigo(i.codigo) && i.qtd > 0; })
-          .map(function (i) { return { codigo: i.codigo, cor: i.cor || '', qtd: Math.min(999, Math.max(1, i.qtd | 0)), pers: i.pers ? String(i.pers).slice(0, 100) : '' }; });
+          .map(function (i) { return { codigo: i.codigo, cor: i.cor || '', qtd: Math.min(999, Math.max(1, i.qtd | 0)), pers: i.pers ? String(i.pers).slice(0, 100) : '', vari: variacaoDe(porCodigo(i.codigo), i.vari | 0) ? (i.vari | 0) : 0 }; });
         S.cliente = String(d.cliente || '').slice(0, 80); S.obs = String(d.obs || '').slice(0, 300);
       }
     } catch (e) { /* ignora */ }
@@ -85,7 +89,7 @@
   function desenharGrade() {
     var q = norm(S.busca).trim(), g = $('#grade'); g.textContent = '';
     var lista = PRODUTOS.filter(function (p) {
-      return (S.cat === 'Todos' || p.categoria === S.cat) && (!q || norm(p.nome + ' ' + p.nomeCompleto + ' ' + p.categoria + ' ' + p.codigo).indexOf(q) >= 0);
+      return (S.cat === 'Todos' || p.categoria === S.cat) && (!q || norm(p.nome + ' ' + p.nomeCompleto + ' ' + p.categoria + ' ' + p.codigo + ' ' + (p.cod || '') + ' ' + (p.variacoes || []).map(function (v) { return v.nome; }).join(' ')).indexOf(q) >= 0);
     });
     lista.forEach(function (p) { g.appendChild(cartao(p)); });
     $('#vazio').hidden = lista.length > 0;
@@ -134,8 +138,10 @@
     var img = h('img', { src: p.foto, alt: p.nome });
     var caixa = h('div', { class: 'det-foto' }, img);
     var todas = [p.foto].concat(p.fotosExtra || []);
+    caixa.trocar = function (src) { img.src = src; if (botoes) botoes.forEach(function (x) { x.classList.remove('ativa'); }); };
+    var botoes = null;
     if (todas.length < 2) return caixa;
-    var botoes = todas.map(function (f, i) {
+    botoes = todas.map(function (f, i) {
       var b = h('button', { type: 'button', class: 'mini' + (i === 0 ? ' ativa' : ''), 'aria-label': 'Ver foto ' + (i + 1) + ' de ' + todas.length,
         onclick: function () {
           img.src = f;
@@ -144,11 +150,11 @@
         } }, h('img', { src: f, alt: '', loading: 'lazy' }));
       return b;
     });
-    return h('div', { class: 'galeria' }, caixa, h('div', { class: 'minis' }, botoes));
+    var g = h('div', { class: 'galeria' }, caixa, h('div', { class: 'minis' }, botoes)); g.trocar = caixa.trocar; return g;
   }
 
   function abrirProduto(p) {
-    var cor = '', querPers = false;
+    var cor = '', querPers = false, vari = 0, fotoGaleria = null;
     var erro = h('p', { class: 'erro', role: 'alert', hidden: true });
     var nomeInp = h('input', { class: 'campo', id: 'f-pers', type: 'text', maxlength: 100, placeholder: p.persExemplo || 'Ex.: Maria Clara', autocomplete: 'off' });
     var blocoNome = h('div', { class: 'bloco', hidden: true }, h('label', { for: 'f-pers', text: p.persRotulo || 'Nome ou frase para gravar' }), nomeInp);
@@ -162,6 +168,23 @@
       cores.appendChild(h('button', { type: 'button', class: 'cor', 'data-cor': c.nome, 'aria-pressed': 'false', onclick: function () { cor = (cor === c.nome ? '' : c.nome); marcarCor(); } }, i, c.nome));
     });
 
+    var blocoVar = null, botoesVar = [];
+    if (p.variacoes && p.variacoes.length) {
+      var gridVar = h('div', { class: 'vars', role: 'group', 'aria-label': 'Variação' });
+      p.variacoes.forEach(function (v) {
+        var b = h('button', { type: 'button', class: 'var' + (v.foto ? ' com-foto' : ''), 'aria-pressed': 'false', onclick: function () {
+          vari = v.n; botoesVar.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+          if (v.foto && fotoGaleria) fotoGaleria.trocar(v.foto);
+          erro.hidden = true;
+        } },
+          v.foto ? h('img', { src: v.foto, alt: '', loading: 'lazy' }) : null,
+          (v.foto || !v.nome) ? h('span', { class: 'v-n', text: 'Variação ' + v.n }) : null,
+          v.nome ? h('span', { class: 'v-nome', text: v.nome }) : null);
+        botoesVar.push(b); gridVar.appendChild(b);
+      });
+      blocoVar = h('div', { class: 'bloco', id: 'bloco-var' }, h('span', { class: 'rot' }, 'Escolha a variação ', h('span', { class: 'dica', text: '(obrigatório)' })), gridVar);
+    }
+
     var blocoPers = null;
     if (p.personalizavel) {
       var bSim = h('button', { type: 'button', 'aria-pressed': 'false', text: 'Sim, quero personalizar' });
@@ -173,18 +196,21 @@
 
     var add = h('button', { type: 'button', class: 'btn btn-pri btn-grande', onclick: function () {
       var nome = nomeInp.value.trim();
+      if (p.variacoes && p.variacoes.length && !vari) { erro.textContent = 'Escolha uma variação antes de adicionar.'; erro.hidden = false; blocoVar.scrollIntoView({ block: 'center' }); return; }
       if (querPers && !nome) { erro.textContent = 'Preencha o que será gravado.'; erro.hidden = false; nomeInp.focus(); return; }
-      adicionar({ codigo: p.codigo, cor: cor, qtd: qtd.valor(), pers: querPers ? nome : '' });
+      adicionar({ codigo: p.codigo, cor: cor, qtd: qtd.valor(), pers: querPers ? nome : '', vari: vari });
       fecharFolha(); aviso('Adicionado ao orçamento');
     } }, icone(IC.mais), 'Adicionar ao orçamento');
 
+    fotoGaleria = galeria(p);
     var corpo = h('div', { class: 'pilha' },
-      galeria(p),
+      fotoGaleria,
       h('div', { class: 'det-info' },
         h('span', { class: 'cat-rot', text: p.categoria }),
         h('h3', { text: p.nomeCompleto }),
         p.medidas ? h('span', { class: 'med', text: 'Medidas: ' + p.medidas }) : null),
       detalhes(p),
+      blocoVar,
       coresDoProduto.length ? h('div', { class: 'bloco' }, h('span', { class: 'rot' }, 'Cor ', h('span', { class: 'dica', text: '(opcional)' })), cores) : null,
       h('div', { class: 'bloco' }, h('span', { class: 'rot', text: 'Quantidade' }), qtd),
       blocoPers, blocoNome, erro, add);
@@ -192,7 +218,7 @@
   }
 
   function adicionar(novo) {
-    var ex = S.itens.filter(function (i) { return i.codigo === novo.codigo && i.cor === novo.cor && i.pers === novo.pers; })[0];
+    var ex = S.itens.filter(function (i) { return i.codigo === novo.codigo && i.cor === novo.cor && i.pers === novo.pers && (i.vari || 0) === (novo.vari || 0); })[0];
     if (ex) ex.qtd = Math.min(999, ex.qtd + novo.qtd); else S.itens.push(novo);
     salvar(); atualizarBarra();
   }
@@ -220,9 +246,10 @@
         var p = porCodigo(it.codigo);
         var q = seletorQtd(it.qtd, function (v) { it.qtd = v; salvar(); atualizarBarra(); });
         lista.appendChild(h('li', { class: 'item' },
-          h('img', { src: p.foto, alt: '' }),
+          h('img', { src: fotoDoItem(p, it.vari), alt: '' }),
           h('div', null,
             h('h4', { text: p.nome }),
+            it.vari ? h('p', { text: 'Variação: ' + rotuloVar(variacaoDe(p, it.vari)).replace(/^Variação /, '') }) : null,
             h('p', { text: 'Cor: ' + (it.cor || 'a combinar') }),
             it.pers ? h('p', { text: 'Personalização: “' + it.pers + '”' }) : null,
             h('div', { class: 'item-acoes' }, q,
@@ -258,7 +285,7 @@
   // Link que abre a página "orcamento.html" com o pedido completo (fotos, quantidades, observações)
   function b64url(s) { return btoa(unescape(encodeURIComponent(s))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
   function linkPedido(q) {
-    var dados = { n: q.numero, d: q.data, c: q.cliente, o: q.obs || '', i: q.itens.map(function (it) { return [porCodigo(it.codigo).id, it.cor || '', it.qtd, it.pers || '']; }) };
+    var dados = { n: q.numero, d: q.data, c: q.cliente, o: q.obs || '', i: q.itens.map(function (it) { return [porCodigo(it.codigo).id, it.cor || '', it.qtd, it.pers || '', it.vari || 0]; }) };
     return baseSite() + 'orcamento.html#' + b64url(JSON.stringify(dados));
   }
   function montarMensagem(q) {
@@ -270,10 +297,11 @@
     q.itens.forEach(function (it, i) {
       var p = porCodigo(it.codigo);
       L.push('*' + (i + 1) + ') ' + p.nome + '*');
+      if (it.vari) L.push('Variação: ' + rotuloVar(variacaoDe(p, it.vari)).replace(/^Variação /, ''));
       L.push('Cor: ' + (it.cor || 'a combinar') + ' | Quantidade: ' + it.qtd);
       if (it.pers) L.push('Personalização: "' + it.pers + '"');
       if (p.medidas) L.push('Medidas: ' + p.medidas);
-      L.push('Código: ' + p.codigo);
+      L.push('Código: ' + codigoVisivel(p));
       L.push('');
     });
     if (q.obs) { L.push('Observações: ' + q.obs); L.push(''); }
@@ -293,7 +321,7 @@
   function enviarOrcamento(botao) {
     var q = {
       numero: numeroOrc(), data: dataHora(), cliente: S.cliente.trim(), obs: S.obs.trim(),
-      itens: S.itens.map(function (i) { return { codigo: i.codigo, cor: i.cor, qtd: i.qtd, pers: i.pers }; }), pecas: totalPecas()
+      itens: S.itens.map(function (i) { return { codigo: i.codigo, cor: i.cor, qtd: i.qtd, pers: i.pers, vari: i.vari || 0 }; }), pecas: totalPecas()
     };
     var msg = montarMensagem(q);
     q.msg = msg; q.url = linkWhats(msg); S.ultimo = q;
@@ -315,7 +343,7 @@
   function navegadorInterno() { return /Instagram|FBAN|FBAV|FB_IAB|Line\//i.test(navigator.userAgent || ''); }
 
   function mostrarConfirmacao(q, pdf, abriu) {
-    var linhas = q.itens.map(function (it) { var p = porCodigo(it.codigo); return h('li', { class: 'pequeno', text: it.qtd + '× ' + p.nome + (it.cor ? ' (' + it.cor + ')' : '') + (it.pers ? ' · “' + it.pers + '”' : '') }); });
+    var linhas = q.itens.map(function (it) { var p = porCodigo(it.codigo); return h('li', { class: 'pequeno', text: it.qtd + '× ' + p.nome + (it.vari ? ' – ' + rotuloVar(variacaoDe(p, it.vari)).replace(/^Variação /, '') : '') + (it.cor ? ' (' + it.cor + ')' : '') + (it.pers ? ' · “' + it.pers + '”' : '') }); });
     var temNum = !!q.url, passo2 = [];
     if (pdf && pdf !== 'erro') {
       var f = arquivoPDF(q);

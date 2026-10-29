@@ -419,14 +419,6 @@ window.PRODUTOS = [
   "categoria": "Maternidade",
   "personalizavel": true,
   "medidas": "Porta maternidade 25 cm + pendurador 8 cm",
-  "foto": "fotos/cod1_ursinho_principe.jpg",
-  "fotosExtra": [
-   "fotos/cod1_ursinho_principe_2.jpg",
-   "fotos/cod1_ursinho_principe_3.jpg",
-   "fotos/cod1_ursinho_principe_4.jpg",
-   "fotos/cod1_ursinho_principe_5.jpg",
-   "fotos/cod1_ursinho_principe_6.jpg"
-  ],
   "persRotulo": "Nome do bebê",
   "persExemplo": "Ex.: Benjamin",
   "persPergunta": "Personalizar com nome?",
@@ -439,6 +431,35 @@ window.PRODUTOS = [
    "## Medidas",
    "- Porta maternidade: 25 cm",
    "- Pendurador: 8 cm"
+  ],
+  "cod": "COD1",
+  "foto": "fotos/cod1_ursinho_principe-geral.jpg",
+  "variacoes": [
+   {
+    "n": 1,
+    "nome": "Costura 1",
+    "foto": "fotos/cod1_ursinho_principe-v1.jpg"
+   },
+   {
+    "n": 2,
+    "nome": "Costura 2",
+    "foto": "fotos/cod1_ursinho_principe-v2.jpg"
+   },
+   {
+    "n": 3,
+    "nome": "Príncipe",
+    "foto": "fotos/cod1_ursinho_principe-v3.jpg"
+   },
+   {
+    "n": 4,
+    "nome": "Aquarelado",
+    "foto": "fotos/cod1_ursinho_principe-v4.jpg"
+   },
+   {
+    "n": 5,
+    "nome": "Amadeirado",
+    "foto": "fotos/cod1_ursinho_principe-v5.jpg"
+   }
   ]
  },
  {
@@ -449,10 +470,6 @@ window.PRODUTOS = [
   "categoria": "Placas e frases",
   "personalizavel": false,
   "medidas": "20 x 20 cm",
-  "foto": "fotos/cod2_placa_crista.jpg",
-  "fotosExtra": [
-   "fotos/cod2_placa_crista_2.jpg"
-  ],
   "descricao": [
    "Placa decorativa em MDF branco – \"Tudo posso naquele que me fortalece\", Filipenses 4:13. Leve fé, inspiração e elegância para o seu ambiente. Com acabamento delicado, gravação a laser e cordão de sisal para pendurar, é perfeita para salas, quartos, escritórios, espaços de oração e ambientes cristãos.",
    "## Características",
@@ -463,6 +480,11 @@ window.PRODUTOS = [
    "- Design delicado e atemporal",
    "- Ideal para decoração ou presente especial",
    "Excelente opção de presente para amigos, familiares, aniversários, batizados, casamentos e outras ocasiões especiais."
+  ],
+  "cod": "COD2",
+  "foto": "fotos/cod2_placa_crista-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod2_placa_crista-f2.jpg"
   ]
  },
  {
@@ -473,11 +495,6 @@ window.PRODUTOS = [
   "categoria": "Maternidade",
   "personalizavel": true,
   "medidas": "25 cm",
-  "foto": "fotos/cod3_arco_iris_boho.jpg",
-  "fotosExtra": [
-   "fotos/cod3_arco_iris_boho_2.jpg",
-   "fotos/cod3_arco_iris_boho_3.jpg"
-  ],
   "persRotulo": "Nome do bebê",
   "persExemplo": "Ex.: Amelie",
   "persPergunta": "Personalizar com nome?",
@@ -492,22 +509,35 @@ window.PRODUTOS = [
    "- Enviamos o suporte redondo do porta maternidade para pendurar",
    "- Acompanha o cordão para pendurar",
    "- Acompanha fita dupla face no pendurador, para melhor fixação (sem furos)"
+  ],
+  "cod": "COD3",
+  "foto": "fotos/cod3_arco_iris_boho-v1.jpg",
+  "variacoes": [
+   {
+    "n": 1,
+    "nome": "Impresso",
+    "foto": "fotos/cod3_arco_iris_boho-v1.jpg"
+   },
+   {
+    "n": 2,
+    "nome": "Alto Relevo",
+    "foto": "fotos/cod3_arco_iris_boho-v2.jpg"
+   },
+   {
+    "n": 3,
+    "nome": "Impresso",
+    "foto": "fotos/cod3_arco_iris_boho-v3.jpg"
+   }
   ]
  },
  {
   "id": 45,
   "codigo": "casinha_led",
   "nome": "Casinha Decorativa com Luz LED em MDF",
-  "nomeCompleto": "Casinha Decorativa com Luz LED – Enfeite Iluminado em MDF para Sala de Estar, Quarto ou Escritório",
+  "nomeCompleto": "COD23 - Casinha Decorativa com Luz LED – Enfeite Iluminado em MDF para Sala de Estar, Quarto ou Escritório",
   "categoria": "Luminárias",
   "personalizavel": false,
   "medidas": "17 cm de altura x 12 cm de largura x 12 cm de comprimento",
-  "foto": "fotos/casinha_led.jpg",
-  "fotosExtra": [
-   "fotos/casinha_led_2.jpg",
-   "fotos/casinha_led_3.jpg",
-   "fotos/casinha_led_4.jpg"
-  ],
   "descricao": [
    "Deixe sua decoração ainda mais encantadora com essa linda casinha iluminada, em MDF com LED.",
    "Ideal para: decoração de Natal, salas, aparadores e ambientes aconchegantes.",
@@ -516,21 +546,23 @@ window.PRODUTOS = [
    "- Largura: 12 cm",
    "- Comprimento: 12 cm",
    "Um charme especial para decorar ou presentear!"
+  ],
+  "cod": "COD23",
+  "foto": "fotos/casinha_led-geral.jpg",
+  "fotosExtra": [
+   "fotos/casinha_led-f2.jpg",
+   "fotos/casinha_led-f3.jpg",
+   "fotos/casinha_led-f4.jpg"
   ]
  },
  {
   "id": 46,
   "codigo": "kit_3_quadros_flores",
   "nome": "Quadros Decoração Kit 3 Faces Clínica De Estética Mdf 3mm",
-  "nomeCompleto": "Quadros Decoração Kit 3 Faces Clínica De Estética Mdf 3mm – Kit 3 Quadros Decorativos em MDF Flores",
+  "nomeCompleto": "COD24 - Quadros Decoração Kit 3 Faces Clínica De Estética Mdf 3mm – Kit 3 Quadros Decorativos em MDF Flores",
   "categoria": "Quadros",
   "personalizavel": false,
   "medidas": "3 peças de 50 x 25 cm cada",
-  "foto": "fotos/kit_3_quadros_flores.jpg",
-  "fotosExtra": [
-   "fotos/kit_3_quadros_flores_2.jpg",
-   "fotos/kit_3_quadros_flores_3.jpg"
-  ],
   "descricao": [
    "Deixe seu ambiente mais elegante e delicado! Um design moderno com recortes florais que transforma a decoração do quarto, sala ou cantinho especial.",
    "## O kit contém",
@@ -538,20 +570,22 @@ window.PRODUTOS = [
    "- Tamanho de cada peça: 50 x 25 cm",
    "- Modelo com recortes vazados de flores",
    "Ideal para quartos, salas, corredores e ambientes decorativos. Um diferencial: decoração moderna, delicada e cheia de personalidade."
+  ],
+  "cod": "COD24",
+  "foto": "fotos/kit_3_quadros_flores-geral.jpg",
+  "fotosExtra": [
+   "fotos/kit_3_quadros_flores-f2.jpg",
+   "fotos/kit_3_quadros_flores-f3.jpg"
   ]
  },
  {
   "id": 47,
   "codigo": "kit_lua_nuvens_estrelas",
   "nome": "Aplique Lua, Nuvens e Estrelas Brancas MDF (1 lua, 3 nuvens e 5 estrelas)",
-  "nomeCompleto": "Aplique Lua, Nuvens e Estrelas Brancas MDF (1 lua, 3 nuvens e 5 estrelas) – Kit com 9 peças, MDF 3 mm, acompanha fita dupla face",
+  "nomeCompleto": "COD25 - Aplique Lua, Nuvens e Estrelas Brancas MDF (1 lua, 3 nuvens e 5 estrelas) – Kit com 9 peças, MDF 3 mm, acompanha fita dupla face",
   "categoria": "Decoração infantil",
   "personalizavel": false,
   "medidas": "Lua 20 cm de altura; nuvem G 32 x 21 cm; nuvem M 27 x 17,5 cm; nuvem P 20 x 13 cm; 5 estrelas de 10 cm de altura",
-  "foto": "fotos/kit_lua_nuvens_estrelas.jpg",
-  "fotosExtra": [
-   "fotos/kit_lua_nuvens_estrelas_2.jpg"
-  ],
   "descricao": [
    "Transforme o quarto infantil em um ambiente mágico, delicado e aconchegante! Ideal para decorar quartos de bebê, berços e paredes.",
    "## O kit contém 9 peças",
@@ -564,6 +598,11 @@ window.PRODUTOS = [
    "- MDF de qualidade, espessura 3 mm",
    "- Instruções de uso: usar a fita dupla face enviada",
    "Perfeito para criar uma composição linda e personalizada no quartinho do seu bebê!"
+  ],
+  "cod": "COD25",
+  "foto": "fotos/kit_lua_nuvens_estrelas-geral.jpg",
+  "fotosExtra": [
+   "fotos/kit_lua_nuvens_estrelas-f2.jpg"
   ]
  },
  {
@@ -574,13 +613,6 @@ window.PRODUTOS = [
   "categoria": "Decoração infantil",
   "personalizavel": true,
   "medidas": "60 cm de largura",
-  "foto": "fotos/cod8_nome_personalizado.jpg",
-  "fotosExtra": [
-   "fotos/cod8_nome_personalizado_2.jpg",
-   "fotos/cod8_nome_personalizado_3.jpg",
-   "fotos/cod8_nome_personalizado_4.jpg",
-   "fotos/cod8_nome_personalizado_5.jpg"
-  ],
   "persRotulo": "Nome que será recortado",
   "persExemplo": "Ex.: Aurora",
   "persPergunta": "Escolher o nome?",
@@ -596,6 +628,49 @@ window.PRODUTOS = [
    "- Decoração de quarto infantil e de bebê",
    "- Porta de maternidade",
    "- Presente criativo e exclusivo"
+  ],
+  "cod": "COD8",
+  "foto": "fotos/cod8_nome_personalizado-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod8_nome_personalizado-f2.jpg",
+   "fotos/cod8_nome_personalizado-f3.jpg"
+  ],
+  "variacoes": [
+   {
+    "n": 1,
+    "nome": "MDF - 35",
+    "foto": "fotos/cod8_nome_personalizado-v1.jpg"
+   },
+   {
+    "n": 2,
+    "nome": "MDF - 40",
+    "foto": "fotos/cod8_nome_personalizado-v2.jpg"
+   },
+   {
+    "n": 3,
+    "nome": "MDF Cru - 45",
+    "foto": "fotos/cod8_nome_personalizado-v3.jpg"
+   },
+   {
+    "n": 4,
+    "nome": "MDF Cru - 50",
+    "foto": "fotos/cod8_nome_personalizado-v4.jpg"
+   },
+   {
+    "n": 5,
+    "nome": "Preto - 35",
+    "foto": "fotos/cod8_nome_personalizado-v5.jpg"
+   },
+   {
+    "n": 6,
+    "nome": "Preto - 40",
+    "foto": "fotos/cod8_nome_personalizado-v6.jpg"
+   },
+   {
+    "n": 7,
+    "nome": "Preto - 50",
+    "foto": "fotos/cod8_nome_personalizado-v7.jpg"
+   }
   ]
  },
  {
@@ -606,11 +681,6 @@ window.PRODUTOS = [
   "categoria": "Casamento e festas",
   "personalizavel": true,
   "medidas": "30 x 23 cm",
-  "foto": "fotos/cod9_placa_entrada_casamento.jpg",
-  "fotosExtra": [
-   "fotos/cod9_placa_entrada_casamento_2.jpg",
-   "fotos/cod9_placa_entrada_casamento_3.jpg"
-  ],
   "persRotulo": "Mensagem da placa",
   "persExemplo": "Ex.: Nada antes, nada depois",
   "persPergunta": "Escrever a sua mensagem?",
@@ -618,6 +688,12 @@ window.PRODUTOS = [
    "Plaquinha de casamento personalizada.",
    "Medidas: 30 x 23 cm.",
    "Fazemos com a sua mensagem!"
+  ],
+  "cod": "COD9",
+  "foto": "fotos/cod9_placa_entrada_casamento-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod9_placa_entrada_casamento-f2.jpg",
+   "fotos/cod9_placa_entrada_casamento-f3.jpg"
   ]
  },
  {
@@ -628,11 +704,6 @@ window.PRODUTOS = [
   "categoria": "Placas e frases",
   "personalizavel": false,
   "medidas": "100 cm de comprimento x 10 cm de altura",
-  "foto": "fotos/cod10_em_tudo_dai_gracas.jpg",
-  "fotosExtra": [
-   "fotos/cod10_em_tudo_dai_gracas_2.jpg",
-   "fotos/cod10_em_tudo_dai_gracas_3.jpg"
-  ],
   "cores": [
    "Preto"
   ],
@@ -646,6 +717,12 @@ window.PRODUTOS = [
    "- Leve e fácil de instalar (fita dupla face, cola ou preguinhos já inclusos)",
    "- Ideal para sala, quarto, hall, escritório, área gourmet ou aquele cantinho especial",
    "Uma peça que transmite boas energias, gratidão e fé, além de deixar seu espaço mais bonito e elegante. Ótima opção para presentear quem você ama."
+  ],
+  "cod": "COD10",
+  "foto": "fotos/cod10_em_tudo_dai_gracas-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod10_em_tudo_dai_gracas-f2.jpg",
+   "fotos/cod10_em_tudo_dai_gracas-f3.jpg"
   ]
  },
  {
@@ -656,12 +733,6 @@ window.PRODUTOS = [
   "categoria": "Decoração infantil",
   "personalizavel": false,
   "medidas": "Macaco 11 x 11 cm; girafa 9 x 18 cm; elefante 14 x 12 cm; leão 12 x 12 cm (largura x altura)",
-  "foto": "fotos/cod11_kit_safari.jpg",
-  "fotosExtra": [
-   "fotos/cod11_kit_safari_2.jpg",
-   "fotos/cod11_kit_safari_3.jpg",
-   "fotos/cod11_kit_safari_4.jpg"
-  ],
   "cores": [],
   "descricao": [
    "Transforme o quartinho do seu pequeno em uma verdadeira aventura Safari! Este Kit Safari Decorativo em MDF laminado traz charme, delicadeza e personalidade para o quarto do bebê ou das crianças, com macaco, girafa, elefante e leão.",
@@ -687,6 +758,13 @@ window.PRODUTOS = [
    "- Elefante: 14 cm de largura x 12 cm de altura",
    "- Leão: 12 cm de largura x 12 cm de altura",
    "As cores foram cuidadosamente escolhidas para uma decoração alegre, moderna e harmoniosa."
+  ],
+  "cod": "COD11",
+  "foto": "fotos/cod11_kit_safari-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod11_kit_safari-f2.jpg",
+   "fotos/cod11_kit_safari-f3.jpg",
+   "fotos/cod11_kit_safari-f4.jpg"
   ]
  },
  {
@@ -697,13 +775,6 @@ window.PRODUTOS = [
   "categoria": "Decoração infantil",
   "personalizavel": true,
   "medidas": "15 cm de largura x 30 cm de altura",
-  "foto": "fotos/cod12_jogador_futebol.jpg",
-  "fotosExtra": [
-   "fotos/cod12_jogador_futebol_2.jpg",
-   "fotos/cod12_jogador_futebol_3.jpg",
-   "fotos/cod12_jogador_futebol_4.jpg",
-   "fotos/cod12_jogador_futebol_5.jpg"
-  ],
   "cores": [
    "Azul",
    "Preto",
@@ -735,6 +806,35 @@ window.PRODUTOS = [
    "- Combine com outros itens do tema futebol",
    "## Conteúdo da embalagem",
    "- 1 display de mesa jogador de futebol em MDF personalizado"
+  ],
+  "cod": "COD12",
+  "foto": "fotos/cod12_jogador_futebol-v1.jpg",
+  "variacoes": [
+   {
+    "n": 1,
+    "nome": "Modelo 1",
+    "foto": "fotos/cod12_jogador_futebol-v1.jpg"
+   },
+   {
+    "n": 2,
+    "nome": "Modelo 2",
+    "foto": "fotos/cod12_jogador_futebol-v2.jpg"
+   },
+   {
+    "n": 3,
+    "nome": "Modelo 3",
+    "foto": "fotos/cod12_jogador_futebol-v3.jpg"
+   },
+   {
+    "n": 4,
+    "nome": "Modelo Goleiro",
+    "foto": "fotos/cod12_jogador_futebol-v4.jpg"
+   },
+   {
+    "n": 5,
+    "nome": "Modelo Feminino",
+    "foto": "fotos/cod12_jogador_futebol-v5.jpg"
+   }
   ]
  },
  {
@@ -745,13 +845,6 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": "30 x 30 cm",
-  "foto": "fotos/cod13_luminaria_letra_nome.jpg",
-  "fotosExtra": [
-   "fotos/cod13_luminaria_letra_nome_2.jpg",
-   "fotos/cod13_luminaria_letra_nome_3.jpg",
-   "fotos/cod13_luminaria_letra_nome_4.jpg",
-   "fotos/cod13_luminaria_letra_nome_5.jpg"
-  ],
   "cores": [
    "Rosa",
    "Azul",
@@ -786,6 +879,35 @@ window.PRODUTOS = [
    "## Conteúdo da embalagem",
    "- 1 luminária personalizada (letra + nome) em MDF com LED",
    "- Baterias inclusas (pronto para ligar)"
+  ],
+  "cod": "COD13",
+  "foto": "fotos/cod13_luminaria_letra_nome-v1.jpg",
+  "variacoes": [
+   {
+    "n": 1,
+    "nome": "",
+    "foto": "fotos/cod13_luminaria_letra_nome-v1.jpg"
+   },
+   {
+    "n": 2,
+    "nome": "",
+    "foto": "fotos/cod13_luminaria_letra_nome-v2.jpg"
+   },
+   {
+    "n": 4,
+    "nome": "",
+    "foto": "fotos/cod13_luminaria_letra_nome-v4.jpg"
+   },
+   {
+    "n": 5,
+    "nome": "",
+    "foto": "fotos/cod13_luminaria_letra_nome-v5.jpg"
+   },
+   {
+    "n": 6,
+    "nome": "",
+    "foto": "fotos/cod13_luminaria_letra_nome-v6.jpg"
+   }
   ]
  },
  {
@@ -796,12 +918,6 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": "39 cm de altura x 36 cm de largura",
-  "foto": "fotos/cod14_luminaria_camisa_futebol.jpg",
-  "fotosExtra": [
-   "fotos/cod14_luminaria_camisa_futebol_2.jpg",
-   "fotos/cod14_luminaria_camisa_futebol_3.jpg",
-   "fotos/cod14_luminaria_camisa_futebol_4.jpg"
-  ],
   "persRotulo": "Nome e número da camisa",
   "persExemplo": "Ex.: Luis, número 7",
   "persPergunta": "Personalizar com nome e número?",
@@ -827,6 +943,13 @@ window.PRODUTOS = [
    "- Ótima opção para presente",
    "- Fácil instalação",
    "- Funciona com pilhas"
+  ],
+  "cod": "COD14",
+  "foto": "fotos/cod14_luminaria_camisa_futebol-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod14_luminaria_camisa_futebol-f2.jpg",
+   "fotos/cod14_luminaria_camisa_futebol-f3.jpg",
+   "fotos/cod14_luminaria_camisa_futebol-f4.jpg"
   ]
  },
  {
@@ -837,12 +960,6 @@ window.PRODUTOS = [
   "categoria": "Decoração infantil",
   "personalizavel": false,
   "medidas": "Aproximadamente 20 cm cada peça",
-  "foto": "fotos/cod15_kit_displays_futebol.jpg",
-  "fotosExtra": [
-   "fotos/cod15_kit_displays_futebol_2.jpg",
-   "fotos/cod15_kit_displays_futebol_3.jpg",
-   "fotos/cod15_kit_displays_futebol_4.jpg"
-  ],
   "cores": [
    "Vermelho",
    "Azul",
@@ -873,6 +990,13 @@ window.PRODUTOS = [
    "- 1 display letreiro \"GOOL\"",
    "- 1 display bola de futebol",
    "Os itens são enviados desmontados para chegarem intactos; a montagem é simples e intuitiva."
+  ],
+  "cod": "COD15",
+  "foto": "fotos/cod15_kit_displays_futebol-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod15_kit_displays_futebol-f2.jpg",
+   "fotos/cod15_kit_displays_futebol-f3.jpg",
+   "fotos/cod15_kit_displays_futebol-f4.jpg"
   ]
  },
  {
@@ -883,11 +1007,6 @@ window.PRODUTOS = [
   "categoria": "Prateleiras",
   "personalizavel": false,
   "medidas": "Cada prateleira: 29,5 cm de comprimento x 18 cm de largura x 8 cm de altura",
-  "foto": "fotos/cod16_kit_nichos_nuvem.jpg",
-  "fotosExtra": [
-   "fotos/cod16_kit_nichos_nuvem_2.jpg",
-   "fotos/cod16_kit_nichos_nuvem_3.jpg"
-  ],
   "cores": [
    "Vermelho",
    "Azul",
@@ -918,6 +1037,12 @@ window.PRODUTOS = [
    "## Conteúdo da embalagem",
    "- Itens selecionados no pedido (prateleira)",
    "- Fita dupla face aplicada no produto"
+  ],
+  "cod": "COD16",
+  "foto": "fotos/cod16_kit_nichos_nuvem-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod16_kit_nichos_nuvem-f2.jpg",
+   "fotos/cod16_kit_nichos_nuvem-f3.jpg"
   ]
  },
  {
@@ -926,29 +1051,85 @@ window.PRODUTOS = [
   "nome": "Palavras em MDF – Happy Birthday, Boy or Girl, Chá de Panela e mais",
   "nomeCompleto": "COD17 - Palavras em MDF plaquinha decorativas aniversário happy birthday decoração PRATA ou DOURADO",
   "categoria": "Casamento e festas",
-  "personalizavel": true,
+  "personalizavel": false,
   "medidas": null,
-  "foto": "fotos/cod17_palavras_mdf.jpg",
-  "fotosExtra": [
-   "fotos/cod17_palavras_mdf_2.jpg",
-   "fotos/cod17_palavras_mdf_3.jpg"
-  ],
-  "cores": [
-   "Cru",
-   "Dourado",
-   "Preto"
-  ],
-  "persRotulo": "Qual palavra você quer?",
-  "persExemplo": "Happy Birthday, Boy or Girl, Chá de Panela, Chá Revelação ou Oh Baby",
-  "persPergunta": "Escolher a palavra?",
+  "cores": [],
   "descricao": [
    "Deixe sua festa muito mais bonita com esse lindo aplique em MDF 3 mm! Traga vida para o ambiente com uma decoração simples, barata e moderna.",
-   "Palavras disponíveis: Happy Birthday, Boy or Girl, Chá de Panela, Chá Revelação e Oh Baby. Cores: Cru, Dourado e Preto.",
+   "Palavras disponíveis: Happy Birthday, Boy or Girl, Chá de Panela, Chá Revelação e Oh Baby. Cores: Cru, Dourado e Preto. Escolha a combinação na variação.",
    "Fácil de instalar: não precisa furar a parede nem fazer sujeira. É só escolher bem o local e fixar, sem pregos e parafusos.",
    "Vai super bem embalado: nossa equipe é treinada para você receber o item na mais perfeita condição.",
    "## Conteúdo da embalagem",
    "- 1 aplique em MDF",
    "- 1 fita 3M"
+  ],
+  "cod": "COD17",
+  "foto": "fotos/cod17_palavras_mdf-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod17_palavras_mdf-f2.jpg",
+   "fotos/cod17_palavras_mdf-f3.jpg"
+  ],
+  "variacoes": [
+   {
+    "n": 1,
+    "nome": "Cru – Boy or Girl"
+   },
+   {
+    "n": 2,
+    "nome": "Cru – Chá de Panela"
+   },
+   {
+    "n": 3,
+    "nome": "Cru – Chá Revelação"
+   },
+   {
+    "n": 4,
+    "nome": "Cru – Happy Birthday"
+   },
+   {
+    "n": 5,
+    "nome": "Cru – Oh Baby"
+   },
+   {
+    "n": 6,
+    "nome": "Dourado – Boy or Girl"
+   },
+   {
+    "n": 7,
+    "nome": "Dourado – Chá de Panela"
+   },
+   {
+    "n": 8,
+    "nome": "Dourado – Chá Revelação"
+   },
+   {
+    "n": 9,
+    "nome": "Dourado – Happy Birthday"
+   },
+   {
+    "n": 10,
+    "nome": "Dourado – Oh Baby"
+   },
+   {
+    "n": 11,
+    "nome": "Preto – Chá Revelação"
+   },
+   {
+    "n": 12,
+    "nome": "Preto – Boy or Girl"
+   },
+   {
+    "n": 13,
+    "nome": "Preto – Chá de Panela"
+   },
+   {
+    "n": 14,
+    "nome": "Preto – Happy Birthday"
+   },
+   {
+    "n": 15,
+    "nome": "Preto – Oh Baby"
+   }
   ]
  },
  {
@@ -959,11 +1140,6 @@ window.PRODUTOS = [
   "categoria": "Casamento e festas",
   "personalizavel": false,
   "medidas": null,
-  "foto": "fotos/cod18_porta_alianca_jesus.jpg",
-  "fotosExtra": [
-   "fotos/cod18_porta_alianca_jesus_2.jpg",
-   "fotos/cod18_porta_alianca_jesus_3.jpg"
-  ],
   "cores": [
    "Branco",
    "Cru",
@@ -990,6 +1166,12 @@ window.PRODUTOS = [
    "## Conteúdo da embalagem",
    "- 1 placa decorativa/porta alianças em MDF laminado",
    "- Fita dupla face já aplicada no produto"
+  ],
+  "cod": "COD18",
+  "foto": "fotos/cod18_porta_alianca_jesus-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod18_porta_alianca_jesus-f2.jpg",
+   "fotos/cod18_porta_alianca_jesus-f3.jpg"
   ]
  },
  {
@@ -1000,11 +1182,6 @@ window.PRODUTOS = [
   "categoria": "Prateleiras",
   "personalizavel": false,
   "medidas": null,
-  "foto": "fotos/cod19_nichos_bola_futebol.jpg",
-  "fotosExtra": [
-   "fotos/cod19_nichos_bola_futebol_2.jpg",
-   "fotos/cod19_nichos_bola_futebol_3.jpg"
-  ],
   "cores": [
    "Vermelho",
    "Azul",
@@ -1034,6 +1211,12 @@ window.PRODUTOS = [
    "## Conteúdo da embalagem",
    "- Itens selecionados no pedido (prateleira)",
    "- Fita dupla face aplicada no produto"
+  ],
+  "cod": "COD19",
+  "foto": "fotos/cod19_nichos_bola_futebol-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod19_nichos_bola_futebol-f2.jpg",
+   "fotos/cod19_nichos_bola_futebol-f3.jpg"
   ]
  },
  {
@@ -1044,11 +1227,6 @@ window.PRODUTOS = [
   "categoria": "Casamento e festas",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/cod20_placa_foto_casal.jpg",
-  "fotosExtra": [
-   "fotos/cod20_placa_foto_casal_2.jpg",
-   "fotos/cod20_placa_foto_casal_3.jpg"
-  ],
   "persRotulo": "Nomes do casal, data e frase (a foto do casal é enviada pelo WhatsApp)",
   "persExemplo": "Ex.: Yasmin & Rafael, 01/05/26",
   "persPergunta": "Personalizar a placa?",
@@ -1075,6 +1253,12 @@ window.PRODUTOS = [
    "- Placa decorativa personalizada em MDF",
    "- Arte exclusiva com nomes, data e foto",
    "- Peça produzida sob encomenda"
+  ],
+  "cod": "COD20",
+  "foto": "fotos/cod20_placa_foto_casal-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod20_placa_foto_casal-f2.jpg",
+   "fotos/cod20_placa_foto_casal-f3.jpg"
   ]
  },
  {
@@ -1085,11 +1269,6 @@ window.PRODUTOS = [
   "categoria": "Casamento e festas",
   "personalizavel": true,
   "medidas": "20 cm de diâmetro",
-  "foto": "fotos/cod21_porta_alianca_personalizado.jpg",
-  "fotosExtra": [
-   "fotos/cod21_porta_alianca_personalizado_2.jpg",
-   "fotos/cod21_porta_alianca_personalizado_3.jpg"
-  ],
   "persRotulo": "Nomes dos noivos e data",
   "persExemplo": "Ex.: Marcela e André, 03/08/24",
   "persPergunta": "Personalizar com nomes e data?",
@@ -1113,6 +1292,12 @@ window.PRODUTOS = [
    "- Presente personalizado",
    "- Decoração de ambientes e lembranças especiais",
    "Dica: combine com flores, suporte ou cavalete para uma apresentação ainda mais encantadora!"
+  ],
+  "cod": "COD21",
+  "foto": "fotos/cod21_porta_alianca_personalizado-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod21_porta_alianca_personalizado-f2.jpg",
+   "fotos/cod21_porta_alianca_personalizado-f3.jpg"
   ]
  },
  {
@@ -1123,11 +1308,6 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": "40 cm de altura",
-  "foto": "fotos/cod22_luminaria_basquete.jpg",
-  "fotosExtra": [
-   "fotos/cod22_luminaria_basquete_2.jpg",
-   "fotos/cod22_luminaria_basquete_3.jpg"
-  ],
   "cores": [
    "Preto"
   ],
@@ -1147,6 +1327,38 @@ window.PRODUTOS = [
    "- Dimensões: 40 cm de altura (largura proporcional ao modelo)",
    "- Instalação: super simples, como pendurar um quadro",
    "Garanta já um presente inesquecível para quem vive e respira basquete!"
+  ],
+  "cod": "COD22",
+  "foto": "fotos/cod22_luminaria_basquete-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod22_luminaria_basquete-f2.jpg",
+   "fotos/cod22_luminaria_basquete-f3.jpg"
+  ]
+ },
+ {
+  "id": 63,
+  "codigo": "cod4_porta_retrato_formatura",
+  "nome": "Porta-Retrato Formatura ABC Personalizado",
+  "nomeCompleto": "COD4 - Porta-Retrato Formatura ABC Personalizado com Nome e Ano",
+  "categoria": "Decoração infantil",
+  "personalizavel": true,
+  "medidas": null,
+  "persRotulo": "Nome e ano",
+  "persExemplo": "Ex.: Ana Luiza, 2025",
+  "persPergunta": "Personalizar com nome e ano?",
+  "cod": "COD4",
+  "foto": "fotos/cod4_porta_retrato_formatura-geral.jpg",
+  "variacoes": [
+   {
+    "n": 1,
+    "nome": "Modelo Nome",
+    "foto": "fotos/cod4_porta_retrato_formatura-v1.jpg"
+   },
+   {
+    "n": 2,
+    "nome": "Modelo Chapeu",
+    "foto": "fotos/cod4_porta_retrato_formatura-v2.jpg"
+   }
   ]
  }
 ];

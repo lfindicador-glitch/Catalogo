@@ -17,7 +17,7 @@
     o.i.forEach(function (r) {
       var p = porId(r[0]); var qt = Math.min(999, Math.max(1, parseInt(r[2], 10) || 1));
       if (!p) { q.faltando++; return; }
-      q.itens.push({ codigo: p.codigo, cor: String(r[1] || '').slice(0, 30), qtd: qt, pers: String(r[3] || '').slice(0, 100) });
+      q.itens.push({ codigo: p.codigo, cor: String(r[1] || '').slice(0, 30), qtd: qt, pers: String(r[3] || '').slice(0, 100), vari: parseInt(r[4], 10) || 0 });
     });
     q.pecas = q.itens.reduce(function (s, i) { return s + i.qtd; }, 0);
     return q;
@@ -29,13 +29,15 @@
     raiz.appendChild(h('div', { class: 'meta' }, h('span', null, 'Cliente: ', h('b', { text: q.cliente })), h('span', { text: q.data })));
     q.itens.forEach(function (it, n) {
       var p = LISTA.filter(function (x) { return x.codigo === it.codigo; })[0];
+      var vv = null; (p.variacoes || []).forEach(function (v) { if (v.n === it.vari) vv = v; });
       var dl = h('dl', null,
         h('dt', { text: 'Quantidade' }), h('dd', null, h('span', { class: 'qtd-g', text: String(it.qtd) })),
         h('dt', { text: 'Cor' }), h('dd', { text: it.cor || 'a combinar' }));
+      if (vv) { dl.insertBefore(h('dd', null, h('span', { class: 'grav', text: (!vv.foto && vv.nome) ? vv.nome : vv.n + (vv.nome ? ' – ' + vv.nome : '') })), dl.firstChild); dl.insertBefore(h('dt', { text: 'Variação' }), dl.firstChild); }
       if (it.pers) { dl.appendChild(h('dt', { text: 'Gravar' })); dl.appendChild(h('dd', null, h('span', { class: 'grav', text: it.pers }))); }
       if (p.medidas) { dl.appendChild(h('dt', { text: 'Medidas' })); dl.appendChild(h('dd', { text: p.medidas })); }
-      dl.appendChild(h('dt', { text: 'Código' })); dl.appendChild(h('dd', { text: p.codigo }));
-      raiz.appendChild(h('article', { class: 'p-item' }, h('img', { src: p.foto, alt: p.nome }), h('div', null, h('h2', { text: (n + 1) + ') ' + p.nome }), dl)));
+      dl.appendChild(h('dt', { text: 'Código' })); dl.appendChild(h('dd', { text: p.cod || p.codigo }));
+      raiz.appendChild(h('article', { class: 'p-item' }, h('img', { src: (vv && vv.foto) || p.foto, alt: p.nome }), h('div', null, h('h2', { text: (n + 1) + ') ' + p.nome }), dl)));
     });
     if (q.faltando) raiz.appendChild(h('p', { class: 'aviso-env', text: q.faltando + ' item(ns) deste pedido não foram encontrados no catálogo atual. Confira a mensagem do WhatsApp.' }));
     if (q.obs) raiz.appendChild(h('div', { class: 'p-obs' }, h('b', { text: 'Observações: ' }), q.obs));
