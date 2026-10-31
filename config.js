@@ -14,16 +14,14 @@ window.CONFIG = {
 
   // Cores que o cliente pode escolher. Para criar uma cor nova, acrescente uma linha.
   CORES: [
-    { nome: "Preto",   hex: "#222222" },
-    { nome: "Branco",  hex: "#FFFFFF" },
-    { nome: "Cru",     hex: "#E8DCC0" },
-    { nome: "Rosa",    hex: "#F2A5C0" },
-    { nome: "Verde",   hex: "#5FA36A" },
-    { nome: "Azul",    hex: "#4A7FC1" },
-    { nome: "Laranja", hex: "#E87120" },
     { nome: "Vermelho", hex: "#C62828" },
-    { nome: "Cinza",   hex: "#9E9E9E" },
-    { nome: "Dourado", hex: "#D4AF37" }
+    { nome: "Preto",    hex: "#222222" },
+    { nome: "Branco",   hex: "#FFFFFF" },
+    { nome: "Rosa",     hex: "#F2A5C0" },
+    { nome: "Laranja",  hex: "#E87120" },
+    { nome: "Verde",    hex: "#5FA36A" },
+    { nome: "Azul",     hex: "#4A7FC1" },
+    { nome: "Cru",      hex: "#E8DCC0" }
   ],
 
   // Sistema de demandas (opcional). Veja o arquivo COMO_CONFIGURAR_DEMANDAS.md.

@@ -9,7 +9,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/caixa_luminaria.jpg"
+  "foto": "fotos/caixa_luminaria.jpg",
+  "descricao": []
  },
  {
   "id": 4,
@@ -19,7 +20,8 @@ window.PRODUTOS = [
   "categoria": "Maternidade",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/enfeite_de_maternidade.jpg"
+  "foto": "fotos/enfeite_de_maternidade.jpg",
+  "descricao": []
  },
  {
   "id": 5,
@@ -29,7 +31,8 @@ window.PRODUTOS = [
   "categoria": "Esculturas",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/escultura.jpg"
+  "foto": "fotos/escultura.jpg",
+  "descricao": []
  },
  {
   "id": 6,
@@ -39,7 +42,8 @@ window.PRODUTOS = [
   "categoria": "Placas e frases",
   "personalizavel": false,
   "medidas": null,
-  "foto": "fotos/frase_de_parede.jpg"
+  "foto": "fotos/frase_de_parede.jpg",
+  "descricao": []
  },
  {
   "id": 7,
@@ -49,7 +53,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": "30 x 20 cm cada",
-  "foto": "fotos/kit_3_lum.jpg"
+  "foto": "fotos/kit_3_lum.jpg",
+  "descricao": []
  },
  {
   "id": 22,
@@ -59,7 +64,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": "25 x 17 cm",
-  "foto": "fotos/luminaria_borboleta_1.jpg"
+  "foto": "fotos/luminaria_borboleta_1.jpg",
+  "descricao": []
  },
  {
   "id": 8,
@@ -69,7 +75,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": "32 x 20 cm cada",
-  "foto": "fotos/kit_3_luminarias_safari.jpg"
+  "foto": "fotos/kit_3_luminarias_safari.jpg",
+  "descricao": []
  },
  {
   "id": 9,
@@ -79,7 +86,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/kit_3_luminarias_sem_fio.jpg"
+  "foto": "fotos/kit_3_luminarias_sem_fio.jpg",
+  "descricao": []
  },
  {
   "id": 10,
@@ -89,7 +97,8 @@ window.PRODUTOS = [
   "categoria": "Prateleiras",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/kit_3_prateleiras.jpg"
+  "foto": "fotos/kit_3_prateleiras.jpg",
+  "descricao": []
  },
  {
   "id": 11,
@@ -99,7 +108,8 @@ window.PRODUTOS = [
   "categoria": "Prateleiras",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/kit_3_prateleiras_safari_infantil.jpg"
+  "foto": "fotos/kit_3_prateleiras_safari_infantil.jpg",
+  "descricao": []
  },
  {
   "id": 12,
@@ -109,7 +119,8 @@ window.PRODUTOS = [
   "categoria": "Quadros",
   "personalizavel": true,
   "medidas": "45 x 25 cm",
-  "foto": "fotos/kit_3_quadros_vazados.jpg"
+  "foto": "fotos/kit_3_quadros_vazados.jpg",
+  "descricao": []
  },
  {
   "id": 13,
@@ -119,7 +130,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": "50 x 26 cm",
-  "foto": "fotos/kit_com_2.jpg"
+  "foto": "fotos/kit_com_2.jpg",
+  "descricao": []
  },
  {
   "id": 14,
@@ -129,7 +141,8 @@ window.PRODUTOS = [
   "categoria": "Quadros",
   "personalizavel": true,
   "medidas": "45 x 60 cm",
-  "foto": "fotos/kit_com_2_quadros.jpg"
+  "foto": "fotos/kit_com_2_quadros.jpg",
+  "descricao": []
  },
  {
   "id": 15,
@@ -139,7 +152,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/kit_com_3.jpg"
+  "foto": "fotos/kit_com_3.jpg",
+  "descricao": []
  },
  {
   "id": 3,
@@ -149,7 +163,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/castelo.jpg"
+  "foto": "fotos/castelo.jpg",
+  "descricao": []
  },
  {
   "id": 21,
@@ -159,7 +174,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": false,
   "medidas": "Kit 60 x 20 cm (peça compacta 20 x 20 cm)",
-  "foto": "fotos/luminaria_bichos.jpg"
+  "foto": "fotos/luminaria_bichos.jpg",
+  "descricao": []
  },
  {
   "id": 24,
@@ -169,7 +185,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": false,
   "medidas": "60 x 18 cm",
-  "foto": "fotos/luminaria_dinossauro.jpg"
+  "foto": "fotos/luminaria_dinossauro.jpg",
+  "descricao": []
  },
  {
   "id": 16,
@@ -179,7 +196,8 @@ window.PRODUTOS = [
   "categoria": "Quadros",
   "personalizavel": false,
   "medidas": "Balão grande 35 x 25,5 cm; médio 25 x 19 cm; pequeno 18,5 x 14 cm",
-  "foto": "fotos/kit_com_3_quadros.jpg"
+  "foto": "fotos/kit_com_3_quadros.jpg",
+  "descricao": []
  },
  {
   "id": 41,
@@ -189,7 +207,8 @@ window.PRODUTOS = [
   "categoria": "Quadros",
   "personalizavel": false,
   "medidas": "60 x 30 cm cada quadro",
-  "foto": "fotos/vazado_folhas.jpg"
+  "foto": "fotos/vazado_folhas.jpg",
+  "descricao": []
  },
  {
   "id": 17,
@@ -199,7 +218,8 @@ window.PRODUTOS = [
   "categoria": "Quadros",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/kit_com_4_quadros.jpg"
+  "foto": "fotos/kit_com_4_quadros.jpg",
+  "descricao": []
  },
  {
   "id": 20,
@@ -209,7 +229,8 @@ window.PRODUTOS = [
   "categoria": "Lembrancinhas",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/lembrancinha_casamento.jpg"
+  "foto": "fotos/lembrancinha_casamento.jpg",
+  "descricao": []
  },
  {
   "id": 18,
@@ -219,7 +240,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": "Balões G 40 x 26 cm, M 28 x 18 cm; nuvens G 40 x 25 cm, M 33 x 20 cm, P 25 x 17 cm",
-  "foto": "fotos/kit_de_luminarias.jpg"
+  "foto": "fotos/kit_de_luminarias.jpg",
+  "descricao": []
  },
  {
   "id": 19,
@@ -229,7 +251,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/kit_luminaria_led_1.jpg"
+  "foto": "fotos/kit_luminaria_led_1.jpg",
+  "descricao": []
  },
  {
   "id": 1,
@@ -239,7 +262,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/LUMINARIA_BORBOLETA.jpg"
+  "foto": "fotos/LUMINARIA_BORBOLETA.jpg",
+  "descricao": []
  },
  {
   "id": 23,
@@ -249,7 +273,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/luminaria_decorativa_borboleta.jpg"
+  "foto": "fotos/luminaria_decorativa_borboleta.jpg",
+  "descricao": []
  },
  {
   "id": 27,
@@ -259,7 +284,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": "30 x 40 cm",
-  "foto": "fotos/luminaria_infantil.jpg"
+  "foto": "fotos/luminaria_infantil.jpg",
+  "descricao": []
  },
  {
   "id": 25,
@@ -269,7 +295,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": "50 x 20 cm",
-  "foto": "fotos/luminaria_dinossauro_com_nome_personalizado.jpg"
+  "foto": "fotos/luminaria_dinossauro_com_nome_personalizado.jpg",
+  "descricao": []
  },
  {
   "id": 32,
@@ -279,7 +306,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": "33 cm",
-  "foto": "fotos/luminaria_timao_nautico.jpg"
+  "foto": "fotos/luminaria_timao_nautico.jpg",
+  "descricao": []
  },
  {
   "id": 26,
@@ -289,7 +317,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": "40 cm",
-  "foto": "fotos/luminaria_goleiro.jpg"
+  "foto": "fotos/luminaria_goleiro.jpg",
+  "descricao": []
  },
  {
   "id": 28,
@@ -299,7 +328,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": "12 x 9 cm",
-  "foto": "fotos/luminaria_mdf.jpg"
+  "foto": "fotos/luminaria_mdf.jpg",
+  "descricao": []
  },
  {
   "id": 29,
@@ -309,7 +339,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": "30 cm",
-  "foto": "fotos/luminaria_nossa_senhora.jpg"
+  "foto": "fotos/luminaria_nossa_senhora.jpg",
+  "descricao": []
  },
  {
   "id": 30,
@@ -319,7 +350,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/luminaria_nuvem.jpg"
+  "foto": "fotos/luminaria_nuvem.jpg",
+  "descricao": []
  },
  {
   "id": 31,
@@ -329,7 +361,8 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/luminaria_sagrada_famlia.jpg"
+  "foto": "fotos/luminaria_sagrada_famlia.jpg",
+  "descricao": []
  },
  {
   "id": 33,
@@ -339,7 +372,8 @@ window.PRODUTOS = [
   "categoria": "Maternidade",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/nuvem_com_led.jpg"
+  "foto": "fotos/nuvem_com_led.jpg",
+  "descricao": []
  },
  {
   "id": 35,
@@ -349,7 +383,8 @@ window.PRODUTOS = [
   "categoria": "Placas e frases",
   "personalizavel": false,
   "medidas": null,
-  "foto": "fotos/placa_decorativa.jpg"
+  "foto": "fotos/placa_decorativa.jpg",
+  "descricao": []
  },
  {
   "id": 36,
@@ -359,7 +394,8 @@ window.PRODUTOS = [
   "categoria": "Placas e frases",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/placa_nome_personalizado.jpg"
+  "foto": "fotos/placa_nome_personalizado.jpg",
+  "descricao": []
  },
  {
   "id": 37,
@@ -369,7 +405,8 @@ window.PRODUTOS = [
   "categoria": "Prateleiras",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/prateleira_luminaria_borboleta.jpg"
+  "foto": "fotos/prateleira_luminaria_borboleta.jpg",
+  "descricao": []
  },
  {
   "id": 38,
@@ -379,7 +416,8 @@ window.PRODUTOS = [
   "categoria": "Quadros",
   "personalizavel": true,
   "medidas": "42 x 40 cm",
-  "foto": "fotos/quadro_decorativo.jpg"
+  "foto": "fotos/quadro_decorativo.jpg",
+  "descricao": []
  },
  {
   "id": 34,
@@ -389,7 +427,8 @@ window.PRODUTOS = [
   "categoria": "Quadros",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/pai_nosso.jpg"
+  "foto": "fotos/pai_nosso.jpg",
+  "descricao": []
  },
  {
   "id": 39,
@@ -399,7 +438,8 @@ window.PRODUTOS = [
   "categoria": "Decoração infantil",
   "personalizavel": true,
   "medidas": null,
-  "foto": "fotos/regua_de_crescimento.jpg"
+  "foto": "fotos/regua_de_crescimento.jpg",
+  "descricao": []
  },
  {
   "id": 40,
@@ -409,7 +449,8 @@ window.PRODUTOS = [
   "categoria": "Quadros",
   "personalizavel": false,
   "medidas": null,
-  "foto": "fotos/trio_quadros.jpg"
+  "foto": "fotos/trio_quadros.jpg",
+  "descricao": []
  },
  {
   "id": 42,
@@ -704,9 +745,6 @@ window.PRODUTOS = [
   "categoria": "Placas e frases",
   "personalizavel": false,
   "medidas": "100 cm de comprimento x 10 cm de altura",
-  "cores": [
-   "Preto"
-  ],
   "descricao": [
    "Quadro frase \"Em Tudo Dai Graças\" + coração decorativo em MDF preto, 100 x 10 cm – decoração com fé e estilo.",
    "Leve mais amor, gratidão e fé para sua casa! Este lindo quadro decorativo em MDF na cor preta traz a frase \"Em Tudo Dai Graças\" acompanhada de um delicado coração, perfeito para deixar qualquer ambiente mais acolhedor, elegante e cheio de significado.",
@@ -733,7 +771,6 @@ window.PRODUTOS = [
   "categoria": "Decoração infantil",
   "personalizavel": false,
   "medidas": "Macaco 11 x 11 cm; girafa 9 x 18 cm; elefante 14 x 12 cm; leão 12 x 12 cm (largura x altura)",
-  "cores": [],
   "descricao": [
    "Transforme o quartinho do seu pequeno em uma verdadeira aventura Safari! Este Kit Safari Decorativo em MDF laminado traz charme, delicadeza e personalidade para o quarto do bebê ou das crianças, com macaco, girafa, elefante e leão.",
    "## Principais benefícios",
@@ -775,16 +812,6 @@ window.PRODUTOS = [
   "categoria": "Decoração infantil",
   "personalizavel": true,
   "medidas": "15 cm de largura x 30 cm de altura",
-  "cores": [
-   "Azul",
-   "Preto",
-   "Branco",
-   "Rosa",
-   "Verde",
-   "Laranja",
-   "Cinza",
-   "Cru"
-  ],
   "persRotulo": "Nome e número do jogador",
   "persExemplo": "Ex.: Pedro, número 10",
   "persPergunta": "Personalizar com nome e número?",
@@ -794,7 +821,7 @@ window.PRODUTOS = [
    "- Material: MDF 3 mm laminado de alta qualidade",
    "- Largura: 15 cm",
    "- Altura: 30 cm",
-   "- Cores disponíveis: Azul, Preto, Branco, Rosa, Verde, Laranja, Cinza e Cru",
+   "- Cores disponíveis: Azul, Preto, Branco, Rosa, Verde, Laranja e Cru",
    "- Produto leve, resistente e durável, com corte preciso e excelente acabamento",
    "- Personalizável com nome e número",
    "## Principais benefícios",
@@ -845,15 +872,6 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": "30 x 30 cm",
-  "cores": [
-   "Rosa",
-   "Azul",
-   "Vermelho",
-   "Preto",
-   "Branco",
-   "Cru",
-   "Verde"
-  ],
   "persRotulo": "Nome (a letra inicial é feita a partir do nome)",
   "persExemplo": "Ex.: Ayla",
   "persPergunta": "Personalizar com nome?",
@@ -960,15 +978,6 @@ window.PRODUTOS = [
   "categoria": "Decoração infantil",
   "personalizavel": false,
   "medidas": "Aproximadamente 20 cm cada peça",
-  "cores": [
-   "Vermelho",
-   "Azul",
-   "Rosa",
-   "Cru",
-   "Branco",
-   "Verde",
-   "Preto"
-  ],
   "descricao": [
    "Quer transformar a festa do seu pequeno craque em um verdadeiro espetáculo? Com o Kit de Displays Futebol da Corte e Cria Decor, você leva para a mesa do bolo o acabamento profissional das grandes festas. Feitos com corte a laser de alta precisão.",
    "## Principais benefícios",
@@ -1007,15 +1016,6 @@ window.PRODUTOS = [
   "categoria": "Prateleiras",
   "personalizavel": false,
   "medidas": "Cada prateleira: 29,5 cm de comprimento x 18 cm de largura x 8 cm de altura",
-  "cores": [
-   "Vermelho",
-   "Azul",
-   "Rosa",
-   "Cru",
-   "Branco",
-   "Verde",
-   "Preto"
-  ],
   "descricao": [
    "Transforme o quarto do seu pequeno em um refúgio de ternura e organização! As prateleiras em formato de nuvem unem a funcionalidade de que você precisa à doçura que seu bebê merece.",
    "## Principais benefícios",
@@ -1049,14 +1049,13 @@ window.PRODUTOS = [
   "id": 57,
   "codigo": "cod17_palavras_mdf",
   "nome": "Palavras em MDF – Happy Birthday, Boy or Girl, Chá de Panela e mais",
-  "nomeCompleto": "COD17 - Palavras em MDF plaquinha decorativas aniversário happy birthday decoração PRATA ou DOURADO",
+  "nomeCompleto": "COD17 - Palavras em MDF plaquinha decorativas aniversário happy birthday decoração",
   "categoria": "Casamento e festas",
   "personalizavel": false,
   "medidas": null,
-  "cores": [],
   "descricao": [
    "Deixe sua festa muito mais bonita com esse lindo aplique em MDF 3 mm! Traga vida para o ambiente com uma decoração simples, barata e moderna.",
-   "Palavras disponíveis: Happy Birthday, Boy or Girl, Chá de Panela, Chá Revelação e Oh Baby. Cores: Cru, Dourado e Preto. Escolha a combinação na variação.",
+   "Palavras disponíveis: Happy Birthday, Boy or Girl, Chá de Panela, Chá Revelação e Oh Baby. Escolha a palavra na variação e a cor logo abaixo.",
    "Fácil de instalar: não precisa furar a parede nem fazer sujeira. É só escolher bem o local e fixar, sem pregos e parafusos.",
    "Vai super bem embalado: nossa equipe é treinada para você receber o item na mais perfeita condição.",
    "## Conteúdo da embalagem",
@@ -1072,63 +1071,23 @@ window.PRODUTOS = [
   "variacoes": [
    {
     "n": 1,
-    "nome": "Cru – Boy or Girl"
+    "nome": "Boy or Girl"
    },
    {
     "n": 2,
-    "nome": "Cru – Chá de Panela"
+    "nome": "Chá de Panela"
    },
    {
     "n": 3,
-    "nome": "Cru – Chá Revelação"
+    "nome": "Chá Revelação"
    },
    {
     "n": 4,
-    "nome": "Cru – Happy Birthday"
+    "nome": "Happy Birthday"
    },
    {
     "n": 5,
-    "nome": "Cru – Oh Baby"
-   },
-   {
-    "n": 6,
-    "nome": "Dourado – Boy or Girl"
-   },
-   {
-    "n": 7,
-    "nome": "Dourado – Chá de Panela"
-   },
-   {
-    "n": 8,
-    "nome": "Dourado – Chá Revelação"
-   },
-   {
-    "n": 9,
-    "nome": "Dourado – Happy Birthday"
-   },
-   {
-    "n": 10,
-    "nome": "Dourado – Oh Baby"
-   },
-   {
-    "n": 11,
-    "nome": "Preto – Chá Revelação"
-   },
-   {
-    "n": 12,
-    "nome": "Preto – Boy or Girl"
-   },
-   {
-    "n": 13,
-    "nome": "Preto – Chá de Panela"
-   },
-   {
-    "n": 14,
-    "nome": "Preto – Happy Birthday"
-   },
-   {
-    "n": 15,
-    "nome": "Preto – Oh Baby"
+    "nome": "Oh Baby"
    }
   ]
  },
@@ -1140,15 +1099,6 @@ window.PRODUTOS = [
   "categoria": "Casamento e festas",
   "personalizavel": false,
   "medidas": null,
-  "cores": [
-   "Branco",
-   "Cru",
-   "Preto",
-   "Vermelho",
-   "Azul",
-   "Rosa",
-   "Verde"
-  ],
   "descricao": [
    "O momento do \"sim\" merece um detalhe que carregue toda a fé e o amor do casal. Nossa placa porta alianças une a delicadeza do MDF laminado com uma mensagem que transborda propósito. A peça perfeita para eternizar a união e depois decorar o novo lar.",
    "## Principais benefícios",
@@ -1182,15 +1132,6 @@ window.PRODUTOS = [
   "categoria": "Prateleiras",
   "personalizavel": false,
   "medidas": null,
-  "cores": [
-   "Vermelho",
-   "Azul",
-   "Rosa",
-   "Cru",
-   "Branco",
-   "Verde",
-   "Preto"
-  ],
   "descricao": [
    "Transforme o quarto do seu pequeno em um refúgio de ternura e organização! As prateleiras unem a funcionalidade de que você precisa e um design moderno que encanta à primeira vista.",
    "## Principais benefícios",
@@ -1308,9 +1249,6 @@ window.PRODUTOS = [
   "categoria": "Luminárias",
   "personalizavel": true,
   "medidas": "40 cm de altura",
-  "cores": [
-   "Preto"
-  ],
   "persRotulo": "Nome e número da camisa",
   "persExemplo": "Ex.: Michael Jordan, número 1",
   "persPergunta": "Personalizar com nome e número?",
@@ -1358,6 +1296,358 @@ window.PRODUTOS = [
     "n": 2,
     "nome": "Modelo Chapeu",
     "foto": "fotos/cod4_porta_retrato_formatura-v2.jpg"
+   }
+  ],
+  "descricao": []
+ },
+ {
+  "id": 64,
+  "codigo": "cod35_santo_anjo_batismo",
+  "nome": "Kit 10 Lembrancinhas Batismo Menina Santo Anjo MDF Branco 10cm",
+  "nomeCompleto": "COD35 - Kit 10 Lembrancinhas Batismo Menina Santo Anjo MDF Branco 10cm Personalizada",
+  "categoria": "Lembrancinhas",
+  "personalizavel": true,
+  "medidas": "10 cm de altura",
+  "persRotulo": "Nome do batizado",
+  "persExemplo": "Ex.: Eloá",
+  "persPergunta": "Personalizar com o nome?",
+  "descricao": [
+   "Torne o batizado da sua menina ainda mais especial com uma lembrancinha delicada e cheia de significado! A peça tem o formato de menina rezando, acompanhada da oração do Santo Anjo, e é uma linda recordação para presentear familiares e convidados.",
+   "## O kit contém",
+   "- 10 unidades de lembrancinhas",
+   "- Modelo: Menina Rezando",
+   "- Altura: 10 cm",
+   "- Material: MDF Branco",
+   "- Oração: Santo Anjo",
+   "## Perfeita para",
+   "- Lembrancinha de batizado e batismo de menina",
+   "- Primeira comunhão",
+   "- Decoração da mesa",
+   "- Presente para padrinhos e familiares",
+   "## Importante",
+   "- Produto confeccionado em MDF Branco; o kit contém 10 unidades.",
+   "- Por ser produzido em MDF, podem existir pequenas variações naturais do material."
+  ],
+  "cod": "COD35",
+  "foto": "fotos/cod35_santo_anjo_batismo-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod35_santo_anjo_batismo-f2.jpg"
+  ]
+ },
+ {
+  "id": 65,
+  "codigo": "cod36_cabide_divisoria_bebe",
+  "nome": "Kit Cabide Divisória Bebê MDF 3mm – RN a 18 Meses",
+  "nomeCompleto": "COD36 - Kit Cabide Divisória Bebê MDF 3mm Tamanho Roupinhas RN a 18 Meses",
+  "categoria": "Maternidade",
+  "personalizavel": false,
+  "medidas": "8,5 x 17 cm cada peça",
+  "descricao": [
+   "Organize as roupinhas do seu bebê de forma prática, linda e delicada! O kit de cabides divisórias em MDF organiza o guarda-roupa infantil por tamanhos e facilita encontrar as roupinhas.",
+   "## Opções de kit (escolha na variação)",
+   "- Kit 6 peças: RN, 0 a 3, 3 a 6, 6 a 9, 9 a 12 e 12 a 18 meses",
+   "- Kit 3 peças: 0 a 3, 3 a 6 e 12 a 18 meses",
+   "## Tamanho de cada peça",
+   "- Largura: 8,5 cm",
+   "- Altura: 17 cm",
+   "- Espessura: 3 mm",
+   "- Material: MDF",
+   "## Perfeito para",
+   "- Organização do quarto do bebê e enxoval",
+   "- Presente para chá de bebê",
+   "- Decoração de guarda-roupa infantil",
+   "## Atenção",
+   "- Produto produzido em MDF 3mm.",
+   "- As peças são enviadas conforme a opção de kit selecionada."
+  ],
+  "cod": "COD36",
+  "foto": "fotos/cod36_cabide_divisoria_bebe-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod36_cabide_divisoria_bebe-f2.jpg",
+   "fotos/cod36_cabide_divisoria_bebe-f3.jpg"
+  ],
+  "variacoes": [
+   {
+    "n": 1,
+    "nome": "KIT COM 6 PEÇAS",
+    "foto": "fotos/cod36_cabide_divisoria_bebe-v1.jpg"
+   },
+   {
+    "n": 2,
+    "nome": "KIT COM 3 PEÇAS",
+    "foto": "fotos/cod36_cabide_divisoria_bebe-v2.jpg"
+   }
+  ]
+ },
+ {
+  "id": 66,
+  "codigo": "cod37_placa_nuvem_porta",
+  "nome": "Porta Maternidade Placa Nuvem Personalizada com Nome MDF",
+  "nomeCompleto": "COD37 - Porta Maternidade Placa Nuvem Personalizada com Nome MDF Decoração Porta Quarto Infantil",
+  "categoria": "Maternidade",
+  "personalizavel": true,
+  "medidas": "25 x 15 cm",
+  "persRotulo": "Nome na placa",
+  "persExemplo": "Ex.: Helena",
+  "persPergunta": "Personalizar com nome?",
+  "descricao": [
+   "Deixe o cantinho do seu bebê ainda mais encantador e personalizado! A placa nuvem personalizada com nome é perfeita para decorar portas de quartos, paredes, maternidade, quarto infantil e espaços especiais.",
+   "## Especificações",
+   "- Largura: 25 cm",
+   "- Altura: 15 cm (medida referente apenas à nuvem)",
+   "- Material: MDF",
+   "- Produto personalizado conforme o nome escolhido",
+   "## Ideal para",
+   "- Quarto de bebê e quarto infantil",
+   "- Decoração de porta",
+   "- Presente para nascimento, chá de bebê e aniversário",
+   "## Atenção",
+   "- Produto personalizado e produzido sob encomenda."
+  ],
+  "cod": "COD37",
+  "foto": "fotos/cod37_placa_nuvem_porta-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod37_placa_nuvem_porta-f2.jpg",
+   "fotos/cod37_placa_nuvem_porta-f3.jpg"
+  ]
+ },
+ {
+  "id": 67,
+  "codigo": "cod26_porta_celular",
+  "nome": "Porta Celular Personalizado em MDF",
+  "nomeCompleto": "COD26 - Porta Celular Personalizado em MDF – Corte e Cria",
+  "categoria": "Quadros",
+  "personalizavel": true,
+  "medidas": "10 x 15 cm",
+  "persRotulo": "Logotipo, nome ou frase",
+  "persExemplo": "Ex.: Nome da empresa",
+  "persPergunta": "Personalizar com logotipo, nome ou frase?",
+  "descricao": [
+   "Praticidade, funcionalidade e personalização em um só produto! O porta celular mantém seu smartphone apoiado com segurança no dia a dia, em mesas de trabalho, escritórios, estudos e ambientes domésticos.",
+   "O grande diferencial é o rasgo na base, que permite conectar o carregador e usar o celular enquanto ele carrega, sem tirar o aparelho do suporte.",
+   "## Características",
+   "- Medidas: 10 cm de largura x 15 cm de altura",
+   "- Produzido em MDF",
+   "- Design compacto, moderno e funcional",
+   "- Base com abertura para passagem do cabo do carregador",
+   "- Personalizável com logotipo, nome, frase ou arte exclusiva",
+   "## Ideal para",
+   "- Brindes corporativos, empresas e escritórios",
+   "- Eventos, presentes personalizados e uso pessoal"
+  ],
+  "cod": "COD26",
+  "foto": "fotos/cod26_porta_celular-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod26_porta_celular-f2.jpg"
+  ]
+ },
+ {
+  "id": 68,
+  "codigo": "cod27_porta_lapis",
+  "nome": "Porta-Lápis Personalizado em MDF",
+  "nomeCompleto": "COD27 - Porta-Lápis Personalizado em MDF – Corte e Cria",
+  "categoria": "Quadros",
+  "personalizavel": true,
+  "medidas": "8 x 8 x 8 cm (referência)",
+  "persRotulo": "Logotipo, nome ou frase",
+  "persExemplo": "Ex.: Nome da empresa",
+  "persPergunta": "Personalizar com logotipo, nome ou frase?",
+  "descricao": [
+   "Organização, praticidade e personalidade para deixar qualquer ambiente mais bonito! Perfeito para organizar canetas, lápis, marcadores e acessórios de escritório, com design moderno e acabamento elegante.",
+   "## Características",
+   "- Material: MDF de qualidade",
+   "- Modelo compacto e funcional",
+   "- Medidas de referência: 8 x 8 x 8 cm (podem variar conforme o modelo)",
+   "- Personalização com logotipo, nome ou identidade visual",
+   "## Ideal para",
+   "- Escritórios, empresas, escolas e home office",
+   "- Brindes corporativos, eventos e presentes personalizados"
+  ],
+  "cod": "COD27",
+  "foto": "fotos/cod27_porta_lapis-geral.jpg"
+ },
+ {
+  "id": 69,
+  "codigo": "cod28_chaveiros",
+  "nome": "Chaveiros Personalizados em MDF",
+  "nomeCompleto": "COD28 - Chaveiros Personalizados em MDF – Corte e Cria",
+  "categoria": "Lembrancinhas",
+  "personalizavel": true,
+  "medidas": null,
+  "persRotulo": "Logotipo, nome ou frase",
+  "persExemplo": "Ex.: Nome da empresa",
+  "persPergunta": "Personalizar com logotipo, nome ou frase?",
+  "descricao": [
+   "Pequenos detalhes, grandes significados! Chaveiros em MDF para divulgar sua marca, presentear pessoas especiais ou criar lembranças exclusivas, com acabamento caprichado e diferentes formatos e estilos.",
+   "## Características",
+   "- Material: MDF",
+   "- Diferentes formatos e modelos",
+   "- Personalização com logotipo, nomes, frases ou imagens",
+   "- Argola metálica para uso como chaveiro",
+   "- Leves, práticos e versáteis",
+   "## Ideal para",
+   "- Brindes corporativos e divulgação de empresas",
+   "- Lembrancinhas de eventos, aniversários e casamentos",
+   "- Datas comemorativas e presentes personalizados"
+  ],
+  "cod": "COD28",
+  "foto": "fotos/cod28_chaveiros-geral.jpg"
+ },
+ {
+  "id": 70,
+  "codigo": "cod29_letreiro_cha_casa_nova",
+  "nome": "Letreiro Chá de Casa Nova em MDF",
+  "nomeCompleto": "COD29 - Letreiro Chá de Casa Nova em MDF – Decoração de Festa",
+  "categoria": "Placas e frases",
+  "personalizavel": false,
+  "medidas": null,
+  "descricao": [
+   "Letreiro \"Chá de Casa Nova\" recortado em MDF, perfeito para decorar a mesa do bolo, o painel ou a parede da festa.",
+   "## Tamanhos (escolha na variação)",
+   "- 30 x 14 cm",
+   "- 50 x 24 cm",
+   "- 60 x 28 cm",
+   "- Material: MDF"
+  ],
+  "cod": "COD29",
+  "foto": "fotos/cod29_letreiro_cha_casa_nova-geral.jpg",
+  "variacoes": [
+   {
+    "n": 1,
+    "nome": "30 x 14 cm"
+   },
+   {
+    "n": 2,
+    "nome": "50 x 24 cm"
+   },
+   {
+    "n": 3,
+    "nome": "60 x 28 cm"
+   }
+  ]
+ },
+ {
+  "id": 71,
+  "codigo": "cod30_expositor_joias",
+  "nome": "Expositor de Joias em MDF",
+  "nomeCompleto": "COD30 - Expositor de Joias em MDF – Busto para Colares, Brincos e Bijuterias",
+  "categoria": "Prateleiras",
+  "personalizavel": false,
+  "medidas": null,
+  "descricao": [
+   "Expositor em MDF em formato de busto, ideal para exibir colares, brincos e bijuterias com elegância em lojas, feiras e vitrines.",
+   "## Características",
+   "- Material: MDF",
+   "- Base estável",
+   "- Valoriza a apresentação das peças"
+  ],
+  "cod": "COD30",
+  "foto": "fotos/cod30_expositor_joias-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod30_expositor_joias-f2.jpg"
+  ]
+ },
+ {
+  "id": 72,
+  "codigo": "cod31_placa_gnomo_natal",
+  "nome": "Placa Decorativa Gnomo Feliz Natal",
+  "nomeCompleto": "COD31 - Placa Decorativa Redonda Gnomo Feliz Natal em MDF",
+  "categoria": "Placas e frases",
+  "personalizavel": false,
+  "medidas": null,
+  "descricao": [
+   "Placa redonda decorativa em MDF com estampa de gnomo e a mensagem \"Feliz Natal\". Vem com cordão para pendurar e deixa a porta ou a parede da sua casa com clima natalino.",
+   "## Características",
+   "- Material: MDF",
+   "- Formato redondo com cordão para pendurar",
+   "- Estampa colorida"
+  ],
+  "cod": "COD31",
+  "foto": "fotos/cod31_placa_gnomo_natal-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod31_placa_gnomo_natal-f2.jpg"
+  ]
+ },
+ {
+  "id": 73,
+  "codigo": "cod32_presepio_mdf",
+  "nome": "Presépio de Natal em MDF",
+  "nomeCompleto": "COD32 - Presépio de Natal em MDF – Sagrada Família com Estrela",
+  "categoria": "Esculturas",
+  "personalizavel": false,
+  "medidas": null,
+  "descricao": [
+   "Presépio em MDF com a Sagrada Família sob a estrela, para enfeitar a mesa, o aparador ou a árvore na época do Natal.",
+   "## Características",
+   "- Material: MDF cru, pronto para decorar",
+   "- Peças encaixáveis"
+  ],
+  "cod": "COD32",
+  "foto": "fotos/cod32_presepio_mdf-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod32_presepio_mdf-f2.jpg"
+  ]
+ },
+ {
+  "id": 74,
+  "codigo": "cod33_luminaria_castelo",
+  "nome": "Luminária Castelo com Nome em MDF e LED",
+  "nomeCompleto": "COD33 - Luminária Painel Castelo Personalizada com Nome MDF e LED – Quarto Infantil",
+  "categoria": "Luminárias",
+  "personalizavel": true,
+  "medidas": null,
+  "persRotulo": "Nome na luminária",
+  "persExemplo": "Ex.: Maria Luisa",
+  "persPergunta": "Personalizar com nome?",
+  "descricao": [
+   "Luminária painel em formato de castelo com o nome da criança, com luz LED que cria um ambiente acolhedor. Ótima para quarto infantil, como luz noturna ou peça de destaque na parede.",
+   "## Características",
+   "- Material: MDF",
+   "- Iluminação: LED",
+   "- Personalizada com o nome escolhido",
+   "- Instalação simples, como pendurar um quadro"
+  ],
+  "cod": "COD33",
+  "foto": "fotos/cod33_luminaria_castelo-geral.jpg",
+  "fotosExtra": [
+   "fotos/cod33_luminaria_castelo-f2.jpg"
+  ]
+ },
+ {
+  "id": 75,
+  "codigo": "cod34_placa_nuvem_redonda",
+  "nome": "Placa Redonda Nuvem Personalizada com Nome",
+  "nomeCompleto": "COD34 - Placa Redonda Nuvem Personalizada com Nome – Porta Maternidade e Quarto Infantil",
+  "categoria": "Maternidade",
+  "personalizavel": true,
+  "medidas": null,
+  "persRotulo": "Nome na placa",
+  "persExemplo": "Ex.: Manuela",
+  "persPergunta": "Personalizar com nome?",
+  "descricao": [
+   "Placa redonda com nuvem e nome personalizado, perfeita para a porta da maternidade e para decorar o quarto do bebê.",
+   "## Opções (escolha na variação)",
+   "- Impresso na arte",
+   "- Em alto relevo",
+   "- Personalizada com o nome escolhido"
+  ],
+  "cod": "COD34",
+  "foto": "fotos/cod34_placa_nuvem_redonda-geral.jpg",
+  "variacoes": [
+   {
+    "n": 1,
+    "nome": "IMPRESSO NA ARTE",
+    "foto": "fotos/cod34_placa_nuvem_redonda-v1.jpg"
+   },
+   {
+    "n": 2,
+    "nome": "EM ALTO RELEVO",
+    "foto": "fotos/cod34_placa_nuvem_redonda-v2.jpg"
+   },
+   {
+    "n": 3,
+    "nome": "IMPRESSO NA ARTE – Modelo 2",
+    "foto": "fotos/cod34_placa_nuvem_redonda-v3.jpg"
    }
   ]
  }
