@@ -327,6 +327,7 @@
     q.msg = msg; q.url = linkWhats(msg); S.ultimo = q;
     var janela = null;
     if (q.url) { try { janela = window.open(q.url, '_blank'); } catch (e) { janela = null; } }
+    if (window.Demandas) window.Demandas.enviar(q);
     botao.disabled = true;
     mostrarConfirmacao(q, null, !!janela);
     window.OrcPDF.gerar(q).then(function (bytes) { q.pdf = bytes; mostrarConfirmacao(q, bytes, !!janela); }, function () { mostrarConfirmacao(q, 'erro', !!janela); });

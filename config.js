@@ -26,6 +26,13 @@ window.CONFIG = {
     { nome: "Dourado", hex: "#D4AF37" }
   ],
 
+  // Sistema de demandas (opcional). Veja o arquivo COMO_CONFIGURAR_DEMANDAS.md.
+  // Enquanto estiver vazio, o catálogo funciona normalmente, só não guarda os pedidos no sistema.
+  SUPABASE: {
+    URL: "https://uuhxnwkwpxzmddwsmmhd.supabase.co",
+    CHAVE_PUBLICA: "sb_publishable_eR5bK22m-9qnDTzeR614-A_APdlAEEa"
+  },
+
   // Texto que aparece no fim da mensagem enviada ao WhatsApp
   MENSAGEM_FINAL: "Aguardo o retorno com valores e prazo. Obrigado!"
 };
