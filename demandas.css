@@ -101,3 +101,14 @@
 .ent-linha .campo{width:auto;min-width:170px}
 .grupo-data{margin:10px 0 0;font-size:1rem;padding:6px 10px;background:#E3ECFB;color:#1B3F8C;border-radius:10px}
 .grupo-data.atraso{background:#F9DAD7;color:#8C1D18}
+
+/* produção */
+.selo.p-aguardando{background:#FFE6CC;color:#7A3E00}
+.selo.p-produzido{background:#EADDFB;color:#4B2A8C}
+.selo.p-entregue{background:#D8F1E1;color:#14562F}
+.pag-op button[data-prod="produzido"][aria-pressed="true"]{border-color:#6B43C4;background:#F1E9FC;color:#4B2A8C}
+.pag-op button[data-prod="aguardando"][aria-pressed="true"]{border-color:#D97A12;background:#FFF1E0;color:#7A3E00}
+.prod-datas{font-size:.85rem;color:var(--muted)}
+.kpi.k-prod{border-top:5px solid #6B43C4}
+.nav-btn{font-size:.92rem}
+select.campo{appearance:auto}

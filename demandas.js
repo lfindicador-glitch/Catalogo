@@ -2,8 +2,8 @@
 (function () {
   'use strict';
   var CFG = window.CONFIG || {}, SB = CFG.SUPABASE || {}, raiz = document.getElementById('dem'), SESSAO = 'cec_sessao_demandas';
-  var E = { lista: [], tela: 'dash', filtro: 'pendente', busca: '', erro: '',
-    perDash: { tipo: '30d' }, per: { tipo: 'todos' }, perEnt: { tipo: 'todos' } };
+  var E = { lista: [], tela: 'dash', filtro: 'pendente', busca: '', erro: '', filtroProd: 'aguardando', buscaProd: '', baseProd: 'pedido',
+    perDash: { tipo: '30d' }, per: { tipo: 'todos' }, perEnt: { tipo: 'todos' }, perProd: { tipo: 'todos' } };
   var SVG_CAL = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>';
 
   function h(tag, attrs) {
@@ -107,9 +107,20 @@
     return d.status === 'reprovado' ? 'Reprovado' : 'Pendente';
   }
   function diaDe(d) { return chave(new Date(d.criado_em)); }
+  /* produção: só faz sentido para pedido aprovado. aguardando -> produzido -> entregue */
+  var PROD = [['aguardando', 'Aguardando produção'], ['produzido', 'Produzido (falta entregar)'], ['entregue', 'Entregue ao cliente']];
+  var RESET_PROD = { producao: 'aguardando', produzido_em: null, entregue_em: null };
+  function prodDe(d) { return d.producao === 'produzido' || d.producao === 'entregue' ? d.producao : 'aguardando'; }
+  function rotuloProd(d) { var p = prodDe(d); return p === 'entregue' ? 'Entregue ao cliente' : p === 'produzido' ? 'Produzido · falta entregar' : 'Aguardando produção'; }
+  function camposProd(d, novo) {
+    var agora = new Date().toISOString();
+    if (novo === 'aguardando') return { producao: novo, produzido_em: null, entregue_em: null };
+    if (novo === 'produzido') return { producao: novo, produzido_em: d.produzido_em || agora, entregue_em: null };
+    return { producao: novo, produzido_em: d.produzido_em || agora, entregue_em: agora };
+  }
   function erroSalvar(e) {
     if (e.message === 'sessao') { telaLogin(); return; }
-    E.erro = (e.message === 'http 400') ? 'O banco ainda não tem os campos novos. Rode o arquivo supabase_atualizacao_1.sql no SQL Editor do Supabase (veja o LEIA-ME).' : 'Não foi possível salvar agora. Confira a internet e tente de novo.';
+    E.erro = (e.message === 'http 400') ? 'O banco ainda não tem os campos novos. Rode os arquivos supabase_atualizacao_1.sql e supabase_atualizacao_2.sql no SQL Editor do Supabase (veja o LEIA-ME).' : 'Não foi possível salvar agora. Confira a internet e tente de novo.';
     desenhar();
   }
   function patch(d, campos) {
@@ -133,9 +144,9 @@
           i.medidas ? h('span', { text: 'Medidas: ' + i.medidas }) : null)));
     });
     var acoes = h('div', { class: 'dm-acoes' });
-    if (d.status !== 'aprovado') acoes.appendChild(h('button', { type: 'button', class: 'btn btn-ok', text: 'Aprovar', onclick: function () { mudar(d, { status: 'aprovado', pagamento: null }); } }));
-    if (d.status !== 'reprovado') acoes.appendChild(h('button', { type: 'button', class: 'btn btn-no', text: 'Reprovar', onclick: function () { mudar(d, { status: 'reprovado', pagamento: null }); } }));
-    if (d.status !== 'pendente') acoes.appendChild(h('button', { type: 'button', class: 'btn btn-sec', text: 'Voltar para pendente', onclick: function () { mudar(d, { status: 'pendente', pagamento: null }); } }));
+    if (d.status !== 'aprovado') acoes.appendChild(h('button', { type: 'button', class: 'btn btn-ok', text: 'Aprovar', onclick: function () { mudar(d, Object.assign({ status: 'aprovado', pagamento: null }, RESET_PROD)); } }));
+    if (d.status !== 'reprovado') acoes.appendChild(h('button', { type: 'button', class: 'btn btn-no', text: 'Reprovar', onclick: function () { mudar(d, Object.assign({ status: 'reprovado', pagamento: null }, RESET_PROD)); } }));
+    if (d.status !== 'pendente') acoes.appendChild(h('button', { type: 'button', class: 'btn btn-sec', text: 'Voltar para pendente', onclick: function () { mudar(d, Object.assign({ status: 'pendente', pagamento: null }, RESET_PROD)); } }));
     var pag = null;
     if (d.status === 'aprovado') {
       var op = h('div', { class: 'pag-op' });
@@ -143,6 +154,17 @@
         op.appendChild(h('button', { type: 'button', 'aria-pressed': String((d.pagamento || null) === o[0]), text: o[1], onclick: function () { mudar(d, { pagamento: o[0] }); } }));
       });
       pag = h('div', { class: 'pag' }, h('span', { class: 'rot', text: 'Pagamento' }), op);
+    }
+    var prod = null;
+    if (d.status === 'aprovado') {
+      var opp = h('div', { class: 'pag-op' });
+      PROD.forEach(function (o) {
+        opp.appendChild(h('button', { type: 'button', 'data-prod': o[0], 'aria-pressed': String(prodDe(d) === o[0]), text: o[1], onclick: function () { if (prodDe(d) !== o[0]) mudar(d, camposProd(d, o[0])); } }));
+      });
+      var datas = [];
+      if (d.produzido_em && prodDe(d) !== 'aguardando') datas.push('Produzido em ' + dataBr(d.produzido_em));
+      if (d.entregue_em && prodDe(d) === 'entregue') datas.push('Entregue em ' + dataBr(d.entregue_em));
+      prod = h('div', { class: 'pag prod' }, h('span', { class: 'rot', text: 'Produção' }), opp, datas.length ? h('span', { class: 'prod-datas', text: datas.join(' · ') }) : null);
     }
     /* previsão de entrega (opcional) */
     var entrega = h('input', { class: 'campo', type: 'date', id: 'ent-' + d.id, value: d.entrega_prevista || '', 'aria-label': 'Previsão de entrega' });
@@ -160,15 +182,16 @@
     nota.addEventListener('input', function () { aviso.textContent = ''; });
     var blocoNota = h('div', { class: 'bloco-nota' }, h('label', { for: nota.id, class: 'rot', text: 'Combinado com o cliente (suas observações)' }), nota, h('div', { class: 'nota-linha' }, salvarNota, aviso));
 
-    var hoje = chave(hojeD()), atraso = d.entrega_prevista && d.entrega_prevista < hoje && d.status !== 'reprovado';
+    var hoje = chave(hojeD()), atraso = d.entrega_prevista && d.entrega_prevista < hoje && d.status !== 'reprovado' && !(d.status === 'aprovado' && prodDe(d) === 'entregue');
     return h('article', { class: 'dm ' + d.status },
       h('div', { class: 'dm-topo' },
         h('div', null, h('div', { class: 'dm-cliente', text: d.cliente }), h('div', { class: 'dm-meta', text: 'Solicitado em ' + dataBr(d.criado_em) + (d.numero ? ' · ' + d.numero : '') })),
         h('div', { class: 'dm-selos' }, h('span', { class: 'selo ' + d.status, text: rotuloStatus(d) }),
+          d.status === 'aprovado' ? h('span', { class: 'selo p-' + prodDe(d), text: rotuloProd(d) }) : null,
           d.entrega_prevista ? h('span', { class: 'selo entrega' + (atraso ? ' atraso' : ''), text: 'Entrega ' + dataCurta(d.entrega_prevista) + (atraso ? ' · atrasada' : '') }) : null)),
       itens,
       d.obs ? h('div', { class: 'dm-obs' }, h('b', { text: 'Observação do cliente: ' }), d.obs) : null,
-      blocoNota, blocoEnt, acoes, pag,
+      blocoNota, blocoEnt, acoes, pag, prod,
       h('button', { type: 'button', class: 'link-mini', text: 'Excluir esta demanda', onclick: function () {
         if (!confirm('Excluir a demanda de ' + d.cliente + '? Isso não pode ser desfeito.')) return;
         api('demandas?id=eq.' + encodeURIComponent(d.id), { method: 'DELETE' }).then(function () { E.lista = E.lista.filter(function (x) { return x.id !== d.id; }); desenhar(); }, function () { E.erro = 'Não foi possível excluir agora.'; desenhar(); });
@@ -178,7 +201,7 @@
   /* ---------- telas ---------- */
   function navegacao() {
     var nav = h('nav', { class: 'nav', 'aria-label': 'Telas' });
-    [['dash', 'Dashboard'], ['dem', 'Demandas'], ['ent', 'Entregas']].forEach(function (t) {
+    [['dash', 'Dashboard'], ['dem', 'Demandas'], ['prod', 'Produção'], ['ent', 'Entregas']].forEach(function (t) {
       nav.appendChild(h('button', { type: 'button', class: 'nav-btn', 'aria-current': E.tela === t[0] ? 'page' : null, text: t[1], onclick: function () { E.tela = t[0]; desenhar(); } }));
     });
     return nav;
@@ -210,12 +233,57 @@
     v.forEach(function (d) { alvo.appendChild(cartao(d)); });
   }
 
+  /* ---------- tela de produção: aguardando / produzido / entregue ---------- */
+  function dataProd(d) {
+    if (E.baseProd === 'situacao') {
+      var p = prodDe(d);
+      if (p === 'produzido' && d.produzido_em) return chave(new Date(d.produzido_em));
+      if (p === 'entregue' && d.entregue_em) return chave(new Date(d.entregue_em));
+    }
+    return diaDe(d);
+  }
+  function aprovados(f) { return E.lista.filter(function (d) { return d.status === 'aprovado' && dentro(dataProd(d), f); }); }
+  function telaProducao() {
+    var f = faixa(E.perProd), base = aprovados(f);
+    var abas = h('div', { class: 'abas', role: 'group', 'aria-label': 'Filtrar por situação da produção' });
+    [['aguardando', 'Aguardando produção'], ['produzido', 'Produzidos (a entregar)'], ['entregue', 'Entregues'], ['todos', 'Todos os aprovados']].forEach(function (a) {
+      var n = base.filter(function (d) { return a[0] === 'todos' || prodDe(d) === a[0]; }).length;
+      abas.appendChild(h('button', { type: 'button', class: 'aba', 'data-p': a[0], 'aria-pressed': String(E.filtroProd === a[0]), onclick: function () { E.filtroProd = a[0]; desenhar(); } }, a[1], h('span', { class: 'n', text: String(n) })));
+    });
+    var busca = h('input', { class: 'campo', type: 'search', placeholder: 'Buscar por cliente, número ou produto', value: E.buscaProd, 'aria-label': 'Buscar na produção' });
+    busca.addEventListener('input', function () { E.buscaProd = busca.value; desenharListaProd(); });
+    var base2 = h('select', { class: 'campo', id: 'base-prod', 'aria-label': 'Contar o período pela data de' },
+      h('option', { value: 'pedido', text: 'Período pela data do pedido' }), h('option', { value: 'situacao', text: 'Período pela data da produção/entrega' }));
+    base2.value = E.baseProd; base2.addEventListener('change', function () { E.baseProd = base2.value; desenhar(); });
+    return add(h('div', { class: 'tela' }), [h('h1', { text: 'Produção' }),
+      h('p', { class: 'pequeno', text: 'Só pedidos aprovados. Marque dentro de cada pedido: aguardando produção, produzido ou entregue ao cliente.' }),
+      abas, h('div', { class: 'barra-filtros' }, seletorPeriodo(E.perProd, PRESETS_PASSADO, desenhar), base2), busca, h('div', { class: 'lista-dem', id: 'lista-prod' })]);
+  }
+  function desenharListaProd() {
+    var alvo = document.getElementById('lista-prod'); if (!alvo) return; alvo.textContent = '';
+    var f = faixa(E.perProd), q = E.buscaProd.trim().toLowerCase();
+    var v = aprovados(f).filter(function (d) {
+      if (E.filtroProd !== 'todos' && prodDe(d) !== E.filtroProd) return false;
+      if (!q) return true;
+      var tx = (d.cliente + ' ' + (d.numero || '') + ' ' + (d.obs || '') + ' ' + (d.obs_combinadas || '') + ' ' + (d.itens || []).map(function (i) { return i.nome + ' ' + (i.cod || '') + ' ' + (i.variacao || ''); }).join(' ')).toLowerCase();
+      return tx.indexOf(q) >= 0;
+    });
+    v.sort(function (a, b) {
+      if (E.filtroProd === 'entregue') return (b.entregue_em || b.criado_em) < (a.entregue_em || a.criado_em) ? -1 : 1;
+      if (E.filtroProd === 'todos') return a.criado_em < b.criado_em ? 1 : -1;
+      var ea = a.entrega_prevista || '9999-99-99', eb = b.entrega_prevista || '9999-99-99';
+      return ea !== eb ? (ea < eb ? -1 : 1) : (a.criado_em < b.criado_em ? -1 : 1);
+    });
+    if (!v.length) { alvo.appendChild(h('p', { class: 'vazio', text: E.lista.some(function (d) { return d.status === 'aprovado'; }) ? 'Nenhum pedido nesta situação e período.' : 'Ainda não há pedidos aprovados. Aprove um pedido na tela Demandas.' })); return; }
+    v.forEach(function (d) { alvo.appendChild(cartao(d)); });
+  }
+
   function telaEntregas() {
     var f = faixa(E.perEnt), hoje = chave(hojeD());
-    var com = E.lista.filter(function (d) { return d.entrega_prevista && d.status !== 'reprovado'; });
+    var com = E.lista.filter(function (d) { return d.entrega_prevista && d.status !== 'reprovado' && !(d.status === 'aprovado' && prodDe(d) === 'entregue'); });
     var v = com.filter(function (d) { return dentro(d.entrega_prevista, f); }).sort(function (a, b) { return a.entrega_prevista < b.entrega_prevista ? -1 : a.entrega_prevista > b.entrega_prevista ? 1 : (a.criado_em < b.criado_em ? -1 : 1); });
     var amanha = chave(somaDias(hojeD(), 1)), t = h('div', { class: 'tela' });
-    add(t, [h('h1', { text: 'Entregas previstas' }), h('p', { class: 'pequeno', text: 'Pedidos com data de entrega informada (não mostra os reprovados).' }),
+    add(t, [h('h1', { text: 'Entregas previstas' }), h('p', { class: 'pequeno', text: 'Pedidos com data de entrega informada (não mostra os reprovados nem os já entregues ao cliente).' }),
       h('div', { class: 'barra-filtros' }, seletorPeriodo(E.perEnt, PRESETS_FUTURO, desenhar))]);
     var atrasadas = com.filter(function (d) { return d.entrega_prevista < hoje; }).length, hojeN = com.filter(function (d) { return d.entrega_prevista === hoje; }).length;
     add(t, [h('div', { class: 'kpis kpis-peq' },
@@ -244,8 +312,9 @@
     var aprov = v.filter(function (d) { return d.status === 'aprovado'; });
     var semPag = aprov.filter(function (d) { return !d.pagamento; }).length, p50 = aprov.filter(function (d) { return d.pagamento === '50'; }).length, p100 = aprov.filter(function (d) { return d.pagamento === '100'; }).length;
     var pecas = v.reduce(function (s, d) { return s + (d.pecas || 0); }, 0);
-    var entAtr = E.lista.filter(function (d) { return d.entrega_prevista && d.entrega_prevista < hoje && d.status === 'aprovado'; }).length;
-    var entProx = E.lista.filter(function (d) { return d.entrega_prevista && d.entrega_prevista >= hoje && d.entrega_prevista <= chave(somaDias(hojeD(), 6)) && d.status !== 'reprovado'; }).length;
+    var pAg = aprov.filter(function (d) { return prodDe(d) === 'aguardando'; }).length, pPr = aprov.filter(function (d) { return prodDe(d) === 'produzido'; }).length, pEn = aprov.filter(function (d) { return prodDe(d) === 'entregue'; }).length;
+    var entAtr = E.lista.filter(function (d) { return d.entrega_prevista && d.entrega_prevista < hoje && d.status === 'aprovado' && prodDe(d) !== 'entregue'; }).length;
+    var entProx = E.lista.filter(function (d) { return d.entrega_prevista && d.entrega_prevista >= hoje && d.entrega_prevista <= chave(somaDias(hojeD(), 6)) && d.status !== 'reprovado' && !(d.status === 'aprovado' && prodDe(d) === 'entregue'); }).length;
     function kpi(num, rot, cls) { return h('div', { class: 'kpi' + (cls ? ' ' + cls : '') }, h('span', { class: 'kpi-n', text: String(num) }), h('span', { class: 'kpi-r', text: rot })); }
 
     add(t, [h('h1', { text: 'Dashboard' }), h('div', { class: 'barra-filtros' }, seletorPeriodo(E.perDash, PRESETS_PASSADO, desenhar)),
@@ -255,6 +324,8 @@
     /* pagamento e entregas */
     add(t, [h('h2', { class: 'sec', text: 'Aprovados: pagamento' }),
       h('div', { class: 'kpis kpis-peq' }, kpi(semPag, 'Aguardando pagamento', semPag ? 'alerta' : ''), kpi(p50, '50% pago'), kpi(p100, '100% pago')),
+      h('h2', { class: 'sec', text: 'Aprovados: produção' }),
+      h('div', { class: 'kpis kpis-peq' }, kpi(pAg, 'Aguardando produção', pAg ? 'k-pend' : ''), kpi(pPr, 'Produzidos (falta entregar)', pPr ? 'k-prod' : ''), kpi(pEn, 'Entregues ao cliente', 'k-apr')),
       h('h2', { class: 'sec', text: 'Entregas' }),
       h('div', { class: 'kpis kpis-peq' }, kpi(entAtr, 'Aprovados com entrega atrasada', entAtr ? 'alerta' : ''), kpi(entProx, 'Entregas nos próximos 7 dias'))]);
 
@@ -305,8 +376,9 @@
     raiz.textContent = '';
     raiz.appendChild(navegacao());
     if (E.erro) raiz.appendChild(h('div', { class: 'msg-dem', role: 'alert', text: E.erro }));
-    raiz.appendChild(E.tela === 'dash' ? telaDashboard() : E.tela === 'ent' ? telaEntregas() : telaDemandas());
+    raiz.appendChild(E.tela === 'dash' ? telaDashboard() : E.tela === 'ent' ? telaEntregas() : E.tela === 'prod' ? telaProducao() : telaDemandas());
     if (E.tela === 'dem') desenharLista();
+    if (E.tela === 'prod') desenharListaProd();
   }
 
   function carregar() {
